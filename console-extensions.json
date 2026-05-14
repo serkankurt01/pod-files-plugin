@@ -1,0 +1,19 @@
+[
+  {
+    "type": "console.tab/horizontalNav",
+    "properties": {
+      "model": {
+        "group": "",
+        "version": "v1",
+        "kind": "Pod"
+      },
+      "page": {
+        "name": "Files",
+        "href": "files"
+      },
+      "component": {
+        "$codeRef": "FilesTab.FilesTab"
+      }
+    }
+  }
+]

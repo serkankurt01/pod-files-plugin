@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pod-files-plugin
+  namespace: pod-files-plugin
+  labels:
+    app: pod-files-plugin
+  annotations:
+    # OpenShift auto-provisions a TLS cert into this secret
+    service.beta.openshift.io/serving-cert-secret-name: pod-files-plugin-tls
+spec:
+  ports:
+    - port: 9001
+      targetPort: 9001
+      protocol: TCP
+  selector:
+    app: pod-files-plugin

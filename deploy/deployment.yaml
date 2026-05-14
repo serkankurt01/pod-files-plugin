@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-files-plugin
+  namespace: pod-files-plugin
+  labels:
+    app: pod-files-plugin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-files-plugin
+  template:
+    metadata:
+      labels:
+        app: pod-files-plugin
+    spec:
+      containers:
+        - name: pod-files-plugin
+          image: docker.io/serkankurt01/pod-files-plugin:0.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9001
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 9001
+              scheme: HTTPS
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 9001
+              scheme: HTTPS
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          resources:
+            requests:
+              cpu: 10m
+              memory: 64Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi
+          volumeMounts:
+            - name: tls
+              mountPath: /etc/tls/private
+              readOnly: true
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: true
+            capabilities:
+              drop: [ALL]
+      volumes:
+        - name: tls
+          secret:
+            secretName: pod-files-plugin-tls
+            defaultMode: 0440
+      securityContext:
+        runAsNonRoot: true

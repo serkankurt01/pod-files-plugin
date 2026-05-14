@@ -1,0 +1,14 @@
+apiVersion: console.openshift.io/v1
+kind: ConsolePlugin
+metadata:
+  name: pod-files-plugin
+spec:
+  displayName: "Pod Files Plugin"
+  backend:
+    type: Service
+    service:
+      name: pod-files-plugin
+      namespace: pod-files-plugin
+      port: 9001
+      basePath: "/pod-files-plugin/"
+  proxy: []
