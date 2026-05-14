@@ -3,6 +3,9 @@ export interface FileEntry {
   type: 'file' | 'directory' | 'symlink' | 'other';
   size: number;
   modifiedAt: Date;
+  permissions?: string;
+  user?: string;
+  group?: string;
   target?: string;
 }
 
@@ -14,9 +17,9 @@ export function parseFileList(output: string): FileEntry[] {
   for (const line of output.trim().split('\n')) {
     if (!line) continue;
     const parts = line.split('\t');
-    if (parts.length < 4) continue;
+    if (parts.length < 7) continue;
 
-    const [typeChar, sizeStr, mtime, name, target] = parts;
+    const [typeChar, sizeStr, mtime, permissions, user, group, name, target] = parts;
     const type: FileEntry['type'] =
       typeChar === 'd' ? 'directory' :
       typeChar === 'l' ? 'symlink' :
@@ -27,6 +30,9 @@ export function parseFileList(output: string): FileEntry[] {
       type,
       size: parseInt(sizeStr, 10) || 0,
       modifiedAt: new Date(parseFloat(mtime) * 1000),
+      permissions: permissions.trim() || undefined,
+      user: user.trim() || undefined,
+      group: group.trim() || undefined,
       target: target?.trim() || undefined,
     });
   }
@@ -78,7 +84,7 @@ export function buildListCommand(dirPath: string): string[] {
   const escaped = dirPath.replace(/'/g, "'\\''");
   return [
     'sh', '-c',
-    `find '${escaped}' -maxdepth 1 -mindepth 1 \\( -type f -o -type d -o -type l \\) -printf "%y\\t%s\\t%T@\\t%f\\t%l\\n" 2>/dev/null; true`,
+    `find '${escaped}' -maxdepth 1 -mindepth 1 \\( -type f -o -type d -o -type l \\) -printf "%y\\t%s\\t%T@\\t%m\\t%u\\t%g\\t%f\\t%l\\n" 2>/dev/null; true`,
   ];
 }
 
