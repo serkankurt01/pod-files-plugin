@@ -1,18 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
-  Spinner,
-  EmptyState,
-  EmptyStateIcon,
-  EmptyStateBody,
-  Title,
-} from '@patternfly/react-core';
-import {
-  DownloadIcon,
   PencilAltIcon,
-  FolderOpenIcon,
+  DownloadIcon,
   TrashIcon,
+  CompressArrowsAltIcon,
+  TerminalIcon,
+  LockIcon,
+  FolderIcon,
 } from '@patternfly/react-icons';
-import { execCommand, execCommandWithStdin } from '../utils/exec';
+import { execCommand, execUploadFile } from '../utils/exec';
 import {
   FileEntry,
   parseFileList,
@@ -37,6 +33,13 @@ interface FileExplorerProps {
   namespace: string;
   podName: string;
   containerName: string;
+  containers?: string[]; // full list; selector shown only when length > 1
+}
+
+interface OpenMenu {
+  entry: FileEntry;
+  top: number;
+  left: number;
 }
 
 const Btn: React.FC<
@@ -58,63 +61,102 @@ const Btn: React.FC<
   return <button {...rest} style={{ ...base, ...variants[variant], ...style }}>{children}</button>;
 };
 
-const ActionBtn: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & { danger?: boolean }> = ({ danger, style, children, ...rest }) => (
+const DropItem: React.FC<{
+  onClick: () => void;
+  icon?: React.ReactNode;
+  danger?: boolean;
+  disabled?: boolean;
+  children: React.ReactNode;
+}> = ({ onClick, icon, danger, disabled, children }) => (
   <button
-    {...rest}
+    onClick={disabled ? undefined : onClick}
+    disabled={disabled}
     style={{
-      background: danger ? '#fce8e8' : '#f0f0f0',
-      border: 'none',
-      cursor: rest.disabled ? 'wait' : 'pointer',
-      padding: '4px 8px',
-      borderRadius: 4,
-      color: danger ? '#c9190b' : '#151515',
-      fontSize: 12,
-      fontWeight: 600,
-      opacity: rest.disabled ? 0.5 : 1,
-      display: 'inline-flex',
-      alignItems: 'center',
-      ...style
+      display: 'flex', alignItems: 'center', gap: 8,
+      width: '100%', textAlign: 'left',
+      padding: '8px 16px', background: 'none', border: 'none',
+      cursor: disabled ? 'not-allowed' : 'pointer', fontSize: 13,
+      color: disabled ? '#aaa' : danger ? '#c9190b' : '#151515',
+      opacity: disabled ? 0.5 : 1,
+      whiteSpace: 'nowrap',
     }}
   >
+    {icon && (
+      <span style={{ display: 'inline-flex', width: 14, flexShrink: 0, opacity: 0.72 }}>
+        {icon}
+      </span>
+    )}
     {children}
   </button>
 );
 
-const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, containerName }) => {
+const CssSpinner: React.FC<{ size?: number }> = ({ size = 28 }) => (
+  <>
+    <style>{`@keyframes _pf_spin{to{transform:rotate(360deg)}}`}</style>
+    <span style={{
+      display: 'inline-block', width: size, height: size,
+      borderRadius: '50%', border: '3px solid #d2d2d2',
+      borderTopColor: '#06c', animation: '_pf_spin .7s linear infinite',
+      verticalAlign: 'middle', flexShrink: 0,
+    }} />
+  </>
+);
+
+const ARCHIVE_EXTS = ['.tar.gz', '.tgz', '.tar', '.zip'];
+const isArchive = (name: string) => ARCHIVE_EXTS.some(ext => name.endsWith(ext));
+const isImageFile = (name: string) => ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'].some(ext => name.toLowerCase().endsWith(ext));
+
+const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, containerName, containers }) => {
+  const [activeContainer, setActiveContainer] = useState(containerName);
   const [currentPath, setCurrentPath] = useState('/');
   const [files, setFiles]     = useState<FileEntry[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
-  
+
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
 
-  const [downloading, setDownloading]   = useState<string | null>(null);
-  
+  const [downloading, setDownloading] = useState<string | null>(null);
+
   // Modals state
-  const [showUpload, setShowUpload]     = useState(false);
-  const [editingFile, setEditingFile]   = useState<string | null>(null);
+  const [showUpload, setShowUpload]           = useState(false);
+  const [editingFile, setEditingFile]         = useState<string | null>(null);
   const [showCreateModal, setShowCreateModal] = useState<'file' | 'directory' | null>(null);
-  const [itemsToDelete, setItemsToDelete] = useState<string[]>([]);
-  const [itemToRename, setItemToRename] = useState<string | null>(null);
-  const [itemToPerms, setItemToPerms] = useState<FileEntry | null>(null);
-  const [itemToTail, setItemToTail] = useState<string | null>(null);
-  const [itemToPreview, setItemToPreview] = useState<FileEntry | null>(null);
+  const [itemsToDelete, setItemsToDelete]     = useState<string[]>([]);
+  const [itemToRename, setItemToRename]       = useState<string | null>(null);
+  const [itemToPerms, setItemToPerms]         = useState<FileEntry | null>(null);
+  const [itemToTail, setItemToTail]           = useState<string | null>(null);
+  const [itemToPreview, setItemToPreview]     = useState<FileEntry | null>(null);
 
   // Multi-select state
   const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set());
 
   // Drag & Drop state
-  const [isDragging, setIsDragging] = useState(false);
-  const [uploadingFiles, setUploadingFiles] = useState<{name: string}[]>([]);
+  const [isDragging, setIsDragging]           = useState(false);
+  const [uploadingFiles, setUploadingFiles]   = useState<{ name: string }[]>([]);
+
+  // Three-dot dropdown
+  const [openMenu, setOpenMenu] = useState<OpenMenu | null>(null);
+
+  // Close dropdown on scroll or resize
+  useEffect(() => {
+    if (!openMenu) return;
+    const close = () => setOpenMenu(null);
+    window.addEventListener('scroll', close, true);
+    window.addEventListener('resize', close);
+    return () => {
+      window.removeEventListener('scroll', close, true);
+      window.removeEventListener('resize', close);
+    };
+  }, [openMenu]);
 
   const loadDirectory = useCallback(async (path: string, query: string = '') => {
     setLoading(true);
     setError('');
-    setSelectedItems(new Set()); // Reset selections on load
+    setSelectedItems(new Set());
     try {
       const command = query ? buildSearchCommand(path, query) : buildListCommand(path);
-      const result = await execCommand({ namespace, podName, containerName, command });
+      const result = await execCommand({ namespace, podName, containerName: activeContainer, command });
       if (result.stderr.trim()) { setError(result.stderr.trim()); setFiles([]); }
       else { setFiles(parseFileList(new TextDecoder().decode(result.stdout))); }
       setIsSearching(!!query);
@@ -124,9 +166,12 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
     } finally {
       setLoading(false);
     }
-  }, [namespace, podName, containerName]);
+  }, [namespace, podName, activeContainer]);
 
   useEffect(() => { loadDirectory(currentPath); setSearchQuery(''); }, [currentPath, loadDirectory]);
+
+  // Reset to root when container changes
+  useEffect(() => { setCurrentPath('/'); setSearchQuery(''); }, [activeContainer]);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -140,7 +185,7 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
     const filePath = joinPath(currentPath, entry.name);
     setDownloading(entry.name);
     try {
-      const result = await execCommand({ namespace, podName, containerName, command: ['base64', filePath] });
+      const result = await execCommand({ namespace, podName, containerName: activeContainer, command: ['base64', filePath] });
       const b64 = new TextDecoder().decode(result.stdout).replace(/\s+/g, '');
       const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
       const url = URL.createObjectURL(new Blob([bytes]));
@@ -156,10 +201,10 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
   const downloadArchive = async (names: string[], zipName: string = 'archive.tar.gz') => {
     setDownloading(zipName);
     try {
-      const escapedPath = currentPath.replace(/'/g, "'\\''");
+      const escapedPath  = currentPath.replace(/'/g, "'\\''");
       const escapedNames = names.map(n => `'${n.replace(/'/g, "'\\''")}'`).join(' ');
       const command = ['sh', '-c', `tar -czf - -C '${escapedPath}' ${escapedNames} | base64`];
-      const result = await execCommand({ namespace, podName, containerName, command });
+      const result = await execCommand({ namespace, podName, containerName: activeContainer, command });
       if (result.stderr.trim()) throw new Error(result.stderr);
       const b64 = new TextDecoder().decode(result.stdout).replace(/\s+/g, '');
       const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
@@ -177,13 +222,13 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
     setLoading(true);
     setError('');
     try {
-      const filePath = joinPath(currentPath, entry.name);
-      const escaped = filePath.replace(/'/g, "'\\''");
-      const escapedDir = currentPath.replace(/'/g, "'\\''");
+      const filePath    = joinPath(currentPath, entry.name);
+      const escaped     = filePath.replace(/'/g, "'\\''");
+      const escapedDir  = currentPath.replace(/'/g, "'\\''");
       const command = entry.name.endsWith('.zip')
         ? ['sh', '-c', `unzip -o '${escaped}' -d '${escapedDir}'`]
         : ['sh', '-c', `tar -xf '${escaped}' -C '${escapedDir}'`];
-      const result = await execCommand({ namespace, podName, containerName, command });
+      const result = await execCommand({ namespace, podName, containerName: activeContainer, command });
       if (result.stderr.trim()) throw new Error(result.stderr);
       loadDirectory(currentPath);
     } catch (e: any) {
@@ -193,7 +238,7 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
   };
 
   // Drag & Drop
-  const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
+  const handleDragOver  = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
   const handleDragLeave = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); };
   const handleDrop = async (e: React.DragEvent) => {
     e.preventDefault();
@@ -204,11 +249,12 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
     for (const file of filesToUpload) {
       try {
         setUploadingFiles(prev => [...prev, { name: file.name }]);
-        const data = new Uint8Array(await file.arrayBuffer());
-        const escaped = joinPath(currentPath, file.name).replace(/'/g, "'\\''");
-        const result = await execCommandWithStdin(
-          { namespace, podName, containerName, command: ['sh', '-c', `cat > '${escaped}'`] },
-          data
+        const destPath = joinPath(currentPath, file.name);
+        const result = await execUploadFile(
+          { namespace, podName, containerName: activeContainer },
+          file,
+          destPath,
+          () => {},
         );
         if (result.stderr.trim()) setError(`Failed to upload ${file.name}: ${result.stderr}`);
       } catch (err: any) {
@@ -220,15 +266,28 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
     loadDirectory(currentPath);
   };
 
-  const isImageFile = (name: string) => {
-    const ext = name.toLowerCase();
-    return ext.endsWith('.png') || ext.endsWith('.jpg') || ext.endsWith('.jpeg') || ext.endsWith('.gif') || ext.endsWith('.svg') || ext.endsWith('.webp');
+  const handleMenuOpen = (e: React.MouseEvent, entry: FileEntry) => {
+    e.stopPropagation();
+    if (openMenu?.entry.name === entry.name) {
+      setOpenMenu(null);
+      return;
+    }
+    const rect      = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const menuW     = 200;
+    const menuH     = 260;
+    const left      = rect.right - menuW < 8 ? 8 : rect.right - menuW;
+    const top       = rect.bottom + menuH > window.innerHeight
+      ? Math.max(8, rect.top - menuH)
+      : rect.bottom + 4;
+    setOpenMenu({ entry, top, left });
   };
+
+  const closeMenu = () => setOpenMenu(null);
 
   const segments = pathSegments(currentPath);
 
   return (
-    <div 
+    <div
       style={{ padding: '16px 24px', fontFamily: 'RedHatText, Overpass, sans-serif', position: 'relative' }}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
@@ -240,25 +299,27 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
           position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
           background: 'rgba(6, 102, 204, 0.1)', border: '2px dashed #06c',
           zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          pointerEvents: 'none', borderRadius: 8
+          pointerEvents: 'none', borderRadius: 8,
         }}>
-          <Title headingLevel="h2" size="xl" style={{ color: '#06c', background: '#fff', padding: '12px 24px', borderRadius: 4, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+          <div style={{ color: '#06c', background: '#fff', padding: '12px 24px', borderRadius: 4, boxShadow: '0 4px 12px rgba(0,0,0,0.1)', fontSize: 18, fontWeight: 600 }}>
             Drop files to upload into {currentPath}
-          </Title>
+          </div>
         </div>
       )}
 
-      {/* Uploading overlay */}
+      {/* Uploading toast */}
       {uploadingFiles.length > 0 && (
         <div style={{
           position: 'fixed', bottom: 24, right: 24, zIndex: 101,
-          background: '#fff', padding: '16px 24px', borderRadius: 8, boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-          border: '1px solid #d2d2d2', width: 300
+          background: '#fff', padding: '16px 24px', borderRadius: 8,
+          boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+          border: '1px solid #d2d2d2', width: 300,
         }}>
           <div style={{ fontWeight: 600, marginBottom: 8 }}>Uploading {uploadingFiles.length} file(s)...</div>
           {uploadingFiles.map(f => (
-            <div key={f.name} style={{ fontSize: 13, color: '#6a6e73', marginBottom: 4, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              <Spinner size="md" style={{ marginRight: 8 }} /> {f.name}
+            <div key={f.name} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#6a6e73', marginBottom: 4, overflow: 'hidden' }}>
+              <CssSpinner size={16} />
+              <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{f.name}</span>
             </div>
           ))}
         </div>
@@ -270,11 +331,10 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
         style={{
           display: 'flex', alignItems: 'center', flexWrap: 'wrap',
           gap: 2, padding: '8px 0 12px',
-          borderBottom: '1px solid #d2d2d2', marginBottom: 12,
-          fontSize: 14,
+          borderBottom: '1px solid #d2d2d2', marginBottom: 12, fontSize: 14,
         }}
       >
-        <button onClick={() => navigateTo('/')} style={{ background:'none', border:'none', cursor:'pointer', color:'#06c', padding:'0 4px', fontSize:14 }}>/</button>
+        <button onClick={() => navigateTo('/')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#06c', padding: '0 4px', fontSize: 14 }}>/</button>
         {segments.map((seg, idx) => {
           const isLast  = idx === segments.length - 1;
           const segPath = '/' + segments.slice(0, idx + 1).join('/');
@@ -284,7 +344,7 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
               {isLast ? (
                 <span style={{ fontWeight: 600, color: '#151515', padding: '0 4px' }}>{seg}</span>
               ) : (
-                <button onClick={() => navigateTo(segPath)} style={{ background:'none', border:'none', cursor:'pointer', color:'#06c', padding:'0 4px', fontSize:14 }}>{seg}</button>
+                <button onClick={() => navigateTo(segPath)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#06c', padding: '0 4px', fontSize: 14 }}>{seg}</button>
               )}
             </React.Fragment>
           );
@@ -297,7 +357,7 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
         <Btn variant="secondary" onClick={() => setShowCreateModal('file')}>+ File</Btn>
         <Btn variant="secondary" onClick={() => setShowUpload(true)}>↑ Upload</Btn>
         <Btn variant="plain" aria-label="Refresh" disabled={loading} onClick={() => loadDirectory(currentPath, searchQuery)} style={{ fontSize: 18, padding: '4px 8px' }}>↻</Btn>
-        
+
         {selectedItems.size > 0 && (
           <div style={{ marginLeft: 16, display: 'flex', alignItems: 'center', gap: 8, background: '#e7f1fa', padding: '4px 12px', borderRadius: 4, border: '1px solid #06c' }}>
             <span style={{ fontSize: 13, fontWeight: 600, color: '#06c' }}>{selectedItems.size} selected</span>
@@ -306,7 +366,31 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
           </div>
         )}
 
-        <div style={{ marginLeft: 'auto' }}>
+        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          {/* Container selector — only when there are multiple containers */}
+          {containers && containers.length > 1 && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <label
+                htmlFor="fe-container-select"
+                style={{ fontSize: 13, fontWeight: 500, color: '#151515', whiteSpace: 'nowrap' }}
+              >
+                Container
+              </label>
+              <select
+                id="fe-container-select"
+                value={activeContainer}
+                onChange={e => setActiveContainer(e.target.value)}
+                style={{
+                  padding: '5px 10px', fontSize: 13,
+                  border: '1px solid #c7c7c7', borderRadius: 3,
+                  background: '#fff', color: '#151515', cursor: 'pointer',
+                }}
+              >
+                {containers.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+          )}
+
           <form onSubmit={handleSearchSubmit} style={{ display: 'flex', gap: 4 }}>
             <input
               type="text"
@@ -328,48 +412,50 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
           background: '#fce8e8', border: '1px solid #f5c6cb', color: '#6b1117', fontSize: 13,
         }}>
           <span>{error}</span>
-          <button onClick={() => setError('')} style={{ background:'none', border:'none', cursor:'pointer', color:'#6b1117', fontSize:16 }}>×</button>
+          <button onClick={() => setError('')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6b1117', fontSize: 16 }}>×</button>
         </div>
       )}
 
       {/* ── Loading ── */}
       {loading && (
-        <div style={{ padding: 48, textAlign: 'center' }}>
-          <Spinner size="lg" />
+        <div style={{ padding: 56, display: 'flex', justifyContent: 'center' }}>
+          <CssSpinner size={40} />
         </div>
       )}
 
       {/* ── Empty ── */}
       {!loading && files.length === 0 && !error && (
-        <EmptyState>
-          <EmptyStateIcon icon={FolderOpenIcon} />
-          <Title headingLevel="h4" size="lg">Empty results</Title>
-          <EmptyStateBody>{isSearching ? 'No files match your search.' : 'No files or subdirectories found.'}</EmptyStateBody>
-        </EmptyState>
+        <div style={{ padding: '48px 24px', textAlign: 'center', color: '#6a6e73' }}>
+          <div style={{ fontSize: 48, lineHeight: 1, marginBottom: 12 }}>📂</div>
+          <div style={{ fontSize: 16, fontWeight: 600, color: '#151515', marginBottom: 6 }}>Empty results</div>
+          <div style={{ fontSize: 14 }}>
+            {isSearching ? 'No files match your search.' : 'No files or subdirectories found.'}
+          </div>
+        </div>
       )}
 
-      {/* ── File table (Native HTML for perfect spacing) ── */}
+      {/* ── File table ── */}
       {!loading && files.length > 0 && (
-        <div style={{ overflowX: 'auto', border: '1px solid #d2d2d2', borderRadius: 4 }}>
-          <table className="pf-c-table pf-m-compact pf-m-grid-md" aria-label="Pod filesystem" style={{ minWidth: 800, background: '#fff', margin: 0 }}>
+        <div style={{ overflowX: 'auto', border: '1px solid #d2d2d2', borderRadius: 4, width: '100%' }}>
+          <table className="pf-c-table pf-m-compact pf-m-grid-md" aria-label="Pod filesystem" style={{ width: '100%', tableLayout: 'fixed', background: '#fff', margin: 0 }}>
             <thead className="pf-c-table__thead">
               <tr className="pf-c-table__tr" style={{ borderBottom: '2px solid #d2d2d2' }}>
-                <th className="pf-c-table__th" style={{ padding: '12px 16px', width: '40px' }}>
+                <th className="pf-c-table__th" style={{ padding: '12px 16px', width: 40 }}>
                   <input
                     type="checkbox"
                     checked={selectedItems.size === files.length && files.length > 0}
-                    onChange={(e) => {
+                    onChange={e => {
                       if (e.target.checked) setSelectedItems(new Set(files.map(f => f.name)));
                       else setSelectedItems(new Set());
                     }}
                   />
                 </th>
                 <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600 }}>Name</th>
-                <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600, width: '100px' }}>Size</th>
-                <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600, width: '180px' }}>Modified</th>
-                <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600, width: '100px' }}>Perms</th>
-                <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600, width: '140px' }}>Owner</th>
-                <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600, width: '220px' }}>Actions</th>
+                <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600, width: '9%' }}>Size</th>
+                <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600, width: '14%' }}>Modified</th>
+                <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600, width: '8%' }}>Perms</th>
+                <th className="pf-c-table__th" style={{ padding: '12px 16px', fontWeight: 600, width: '11%' }}>Owner</th>
+                <th className="pf-c-table__th" style={{ padding: '12px 16px', width: '4%' }}></th>
               </tr>
             </thead>
             <tbody className="pf-c-table__tbody">
@@ -379,7 +465,7 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
                     <input
                       type="checkbox"
                       checked={selectedItems.has(entry.name)}
-                      onChange={(e) => {
+                      onChange={e => {
                         const next = new Set(selectedItems);
                         if (e.target.checked) next.add(entry.name);
                         else next.delete(entry.name);
@@ -387,19 +473,19 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
                       }}
                     />
                   </td>
-                  <td className="pf-c-table__td" data-label="Name" style={{ padding: '10px 16px' }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                  <td className="pf-c-table__td" data-label="Name" style={{ padding: '10px 16px', maxWidth: 0 }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: 8, overflow: 'hidden' }}>
                       <FileIconComponent entry={entry} style={{ flexShrink: 0, fontSize: '1.2em' }} />
                       {entry.type === 'directory' ? (
-                        <button onClick={() => navigateInto(entry.name)} style={{ background:'none', border:'none', cursor:'pointer', color:'#06c', fontSize:14, padding:0, fontWeight: 500, textAlign: 'left' }}>
+                        <button onClick={() => navigateInto(entry.name)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#06c', fontSize: 14, padding: 0, fontWeight: 500, textAlign: 'left', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', minWidth: 0 }}>
                           {entry.name}
                         </button>
                       ) : isImageFile(entry.name) ? (
-                        <button onClick={() => setItemToPreview(entry)} style={{ background:'none', border:'none', cursor:'pointer', color:'#06c', fontSize:14, padding:0, fontWeight: 500, textAlign: 'left', textDecoration: 'underline' }}>
+                        <button onClick={() => setItemToPreview(entry)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#06c', fontSize: 14, padding: 0, fontWeight: 500, textAlign: 'left', textDecoration: 'underline', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', minWidth: 0 }}>
                           {entry.name}
                         </button>
                       ) : (
-                        <span style={{ wordBreak: 'break-all', fontSize: 14 }}>{entry.name}</span>
+                        <span style={{ fontSize: 14, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', minWidth: 0 }}>{entry.name}</span>
                       )}
                       {entry.type === 'symlink' && entry.target && (
                         <span style={{ color: '#8a8d90', fontSize: '0.8em', fontStyle: 'italic' }}>→ {entry.target}</span>
@@ -413,45 +499,29 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
                     {entry.modifiedAt.toLocaleString()}
                   </td>
                   <td className="pf-c-table__td" data-label="Permissions" style={{ padding: '10px 16px' }}>
-                    <button onClick={() => setItemToPerms(entry)} style={{ background:'none', border:'none', cursor:'pointer', color:'#06c', fontSize:13, padding:0, textDecoration: 'underline' }}>
+                    <button onClick={() => setItemToPerms(entry)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#06c', fontSize: 13, padding: 0, textDecoration: 'underline' }}>
                       {entry.permissions || '—'}
                     </button>
                   </td>
                   <td className="pf-c-table__td" data-label="Owner" style={{ padding: '10px 16px', color: '#6a6e73', fontSize: 13, whiteSpace: 'nowrap' }}>
                     {entry.user || '—'}:{entry.group || '—'}
                   </td>
-                  <td className="pf-c-table__td" data-label="Actions" style={{ padding: '10px 16px' }}>
-                    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-                      <ActionBtn title="Rename" onClick={() => setItemToRename(entry.name)}>Ren</ActionBtn>
-                      
-                      {entry.type === 'directory' && (
-                        <ActionBtn title="Download as Tar" disabled={downloading === entry.name} onClick={() => downloadArchive([entry.name], `${entry.name}.tar.gz`)}>Tar</ActionBtn>
-                      )}
-                      
-                      {entry.type === 'file' && (
-                        <ActionBtn title="Download" disabled={downloading === entry.name} onClick={() => downloadFile(entry)}>
-                          <DownloadIcon />
-                        </ActionBtn>
-                      )}
-
-                      {entry.type === 'file' && (entry.name.endsWith('.tar.gz') || entry.name.endsWith('.tgz') || entry.name.endsWith('.tar') || entry.name.endsWith('.zip')) && (
-                        <ActionBtn title="Extract Archive" onClick={() => extractArchive(entry)}>Ext</ActionBtn>
-                      )}
-                      
-                      {entry.type === 'file' && isTextFile(entry.name) && (
-                        <ActionBtn title="Edit" onClick={() => setEditingFile(joinPath(currentPath, entry.name))}>
-                          <PencilAltIcon />
-                        </ActionBtn>
-                      )}
-                      
-                      {entry.type === 'file' && (isTextFile(entry.name) || entry.name.endsWith('.log')) && (
-                        <ActionBtn title="Tail Log" onClick={() => setItemToTail(entry.name)}>Tail</ActionBtn>
-                      )}
-                      
-                      <ActionBtn danger title="Delete" onClick={() => setItemsToDelete([entry.name])}>
-                        <TrashIcon />
-                      </ActionBtn>
-                    </div>
+                  {/* Three-dot menu button */}
+                  <td className="pf-c-table__td" style={{ padding: '10px 8px', textAlign: 'center' }}>
+                    <button
+                      onClick={e => handleMenuOpen(e, entry)}
+                      title="More actions"
+                      style={{
+                        background: openMenu?.entry.name === entry.name ? '#f0f0f0' : 'none',
+                        border: '1px solid transparent',
+                        borderRadius: 4, cursor: 'pointer',
+                        padding: '3px 8px', fontSize: 20,
+                        color: '#6a6e73', lineHeight: 1,
+                        letterSpacing: 1,
+                      }}
+                    >
+                      ⋮
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -460,10 +530,82 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
         </div>
       )}
 
+      {/* ── Three-dot dropdown ── */}
+      {openMenu && (
+        <>
+          {/* Invisible backdrop — click to close */}
+          <div onClick={closeMenu} style={{ position: 'fixed', inset: 0, zIndex: 1999 }} />
+          <div style={{
+            position: 'fixed',
+            top: openMenu.top,
+            left: openMenu.left,
+            zIndex: 2000,
+            background: '#fff',
+            border: '1px solid #d2d2d2',
+            borderRadius: 6,
+            boxShadow: '0 4px 20px rgba(0,0,0,0.18)',
+            minWidth: 200,
+            padding: '4px 0',
+          }}>
+            <DropItem icon={<PencilAltIcon />} onClick={() => { closeMenu(); setItemToRename(openMenu.entry.name); }}>
+              Rename
+            </DropItem>
+
+            {openMenu.entry.type === 'directory' && (
+              <DropItem
+                icon={<FolderIcon />}
+                disabled={!!downloading}
+                onClick={() => { closeMenu(); downloadArchive([openMenu.entry.name], `${openMenu.entry.name}.tar.gz`); }}
+              >
+                Download as tar.gz
+              </DropItem>
+            )}
+
+            {openMenu.entry.type === 'file' && (
+              <DropItem
+                icon={<DownloadIcon />}
+                disabled={downloading === openMenu.entry.name}
+                onClick={() => { closeMenu(); downloadFile(openMenu.entry); }}
+              >
+                Download
+              </DropItem>
+            )}
+
+            {openMenu.entry.type === 'file' && isArchive(openMenu.entry.name) && (
+              <DropItem icon={<CompressArrowsAltIcon />} onClick={() => { closeMenu(); extractArchive(openMenu.entry); }}>
+                Extract here
+              </DropItem>
+            )}
+
+            {openMenu.entry.type === 'file' && isTextFile(openMenu.entry.name) && (
+              <DropItem icon={<PencilAltIcon />} onClick={() => { closeMenu(); setEditingFile(joinPath(currentPath, openMenu.entry.name)); }}>
+                Edit
+              </DropItem>
+            )}
+
+            {openMenu.entry.type === 'file' && (isTextFile(openMenu.entry.name) || openMenu.entry.name.endsWith('.log')) && (
+              <DropItem icon={<TerminalIcon />} onClick={() => { closeMenu(); setItemToTail(openMenu.entry.name); }}>
+                Tail
+              </DropItem>
+            )}
+
+            <DropItem icon={<LockIcon />} onClick={() => { closeMenu(); setItemToPerms(openMenu.entry); }}>
+              Permissions
+            </DropItem>
+
+            <div style={{ height: 1, background: '#e8e8e8', margin: '4px 0' }} />
+
+            <DropItem danger icon={<TrashIcon />} onClick={() => { closeMenu(); setItemsToDelete([openMenu.entry.name]); }}>
+              Delete
+            </DropItem>
+          </div>
+        </>
+      )}
+
       {/* ── Modals ── */}
       {showCreateModal && (
         <CreateModal
-          namespace={namespace} podName={podName} containerName={containerName}
+          namespace={namespace} podName={podName} containerName={activeContainer}
           currentPath={currentPath} type={showCreateModal}
           onClose={() => setShowCreateModal(null)}
           onSuccess={() => loadDirectory(currentPath)}
@@ -471,7 +613,7 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
       )}
       {itemsToDelete.length > 0 && (
         <DeleteModal
-          namespace={namespace} podName={podName} containerName={containerName}
+          namespace={namespace} podName={podName} containerName={activeContainer}
           currentPath={currentPath} targetNames={itemsToDelete}
           onClose={() => setItemsToDelete([])}
           onSuccess={() => { setSelectedItems(new Set()); loadDirectory(currentPath); }}
@@ -479,7 +621,7 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
       )}
       {itemToRename && (
         <RenameModal
-          namespace={namespace} podName={podName} containerName={containerName}
+          namespace={namespace} podName={podName} containerName={activeContainer}
           currentPath={currentPath} targetName={itemToRename}
           onClose={() => setItemToRename(null)}
           onSuccess={() => loadDirectory(currentPath)}
@@ -487,7 +629,7 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
       )}
       {itemToPerms && (
         <PermissionsModal
-          namespace={namespace} podName={podName} containerName={containerName}
+          namespace={namespace} podName={podName} containerName={activeContainer}
           currentPath={currentPath} entry={itemToPerms}
           onClose={() => setItemToPerms(null)}
           onSuccess={() => loadDirectory(currentPath)}
@@ -495,21 +637,21 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
       )}
       {itemToTail && (
         <FileTailViewer
-          namespace={namespace} podName={podName} containerName={containerName}
+          namespace={namespace} podName={podName} containerName={activeContainer}
           currentPath={currentPath} targetName={itemToTail}
           onClose={() => setItemToTail(null)}
         />
       )}
       {itemToPreview && (
         <ImagePreviewModal
-          namespace={namespace} podName={podName} containerName={containerName}
+          namespace={namespace} podName={podName} containerName={activeContainer}
           currentPath={currentPath} entry={itemToPreview}
           onClose={() => setItemToPreview(null)}
         />
       )}
       {editingFile && (
         <FileEditor
-          namespace={namespace} podName={podName} containerName={containerName}
+          namespace={namespace} podName={podName} containerName={activeContainer}
           filePath={editingFile}
           onClose={() => setEditingFile(null)}
           onSaved={() => loadDirectory(currentPath)}
@@ -517,7 +659,7 @@ const FileExplorer: React.FC<FileExplorerProps> = ({ namespace, podName, contain
       )}
       {showUpload && (
         <UploadModal
-          namespace={namespace} podName={podName} containerName={containerName}
+          namespace={namespace} podName={podName} containerName={activeContainer}
           currentPath={currentPath}
           onClose={() => setShowUpload(false)}
           onSuccess={() => loadDirectory(currentPath)}

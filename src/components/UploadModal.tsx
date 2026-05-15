@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import PortalModal from './PortalModal';
-import { execCommandWithStdin } from '../utils/exec';
+import { execUploadFile } from '../utils/exec';
 import { joinPath, formatFileSize } from '../utils/fileUtils';
 
 interface UploadModalProps {
@@ -41,17 +41,16 @@ const UploadModal: React.FC<UploadModalProps> = ({
   const handleUpload = async () => {
     if (!file) return;
     setUploading(true);
-    setProgress(30);
+    setProgress(0);
     setError('');
     try {
-      const data = new Uint8Array(await file.arrayBuffer());
-      setProgress(60);
-      const escaped = joinPath(currentPath, file.name).replace(/'/g, "'\\''");
-      const result = await execCommandWithStdin(
-        { namespace, podName, containerName, command: ['sh', '-c', `cat > '${escaped}'`] },
-        data,
+      const destPath = joinPath(currentPath, file.name);
+      const result = await execUploadFile(
+        { namespace, podName, containerName },
+        file,
+        destPath,
+        (pct) => setProgress(pct),
       );
-      setProgress(100);
       if (result.stderr.trim()) { setError(result.stderr); }
       else { onSuccess(); onClose(); }
     } catch (err: any) {

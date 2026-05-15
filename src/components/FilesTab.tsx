@@ -1,20 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { K8sResourceCommon } from '@openshift-console/dynamic-plugin-sdk';
-import {
-  Alert,
-  FormGroup,
-  Form,
-  FormSelect,
-  FormSelectOption,
-} from '@patternfly/react-core';
 import FileExplorer from './FileExplorer';
 
-// SDK's required props shape for console.tab/horizontalNav components
 interface FilesTabProps {
   obj: K8sResourceCommon;
 }
 
-// Type helpers — the console passes the full Pod resource but the SDK surface only exposes K8sResourceCommon
 interface PodSpec {
   containers: { name: string }[];
   initContainers?: { name: string }[];
@@ -36,67 +27,50 @@ export const FilesTab: React.FC<FilesTabProps> = ({ obj }) => {
     ...(spec.initContainers ?? []),
   ];
 
-  const [selectedContainer, setSelectedContainer] = useState<string>(
-    allContainers[0]?.name ?? '',
-  );
-
-  const phase = getPodPhase(obj);
+  const phase     = getPodPhase(obj);
   const namespace = obj.metadata?.namespace ?? '';
-  const podName = obj.metadata?.name ?? '';
+  const podName   = obj.metadata?.name ?? '';
+  const firstContainer = allContainers[0]?.name ?? '';
 
   if (phase && phase !== 'Running') {
     return (
-      <Alert
-        variant="warning"
-        title={`Pod is ${phase}`}
-        isInline
-        style={{ margin: '16px 24px' }}
-      >
-        File browsing is only available while the pod is in <strong>Running</strong> state.
-      </Alert>
+      <div style={{
+        margin: '16px 24px', padding: '12px 16px', borderRadius: 4, fontSize: 14,
+        background: '#fdf2da', border: '1px solid #f0ab00', color: '#795600',
+        display: 'flex', gap: 10, alignItems: 'flex-start',
+      }}>
+        <span style={{ fontSize: 16 }}>⚠</span>
+        <div>
+          <strong>Pod is {phase}</strong>
+          <div style={{ marginTop: 4 }}>
+            File browsing is only available while the pod is in <strong>Running</strong> state.
+          </div>
+        </div>
+      </div>
     );
   }
 
-  if (!selectedContainer) {
+  if (!firstContainer) {
     return (
-      <Alert
-        variant="danger"
-        title="No containers found in this pod"
-        isInline
-        style={{ margin: '16px 24px' }}
-      />
+      <div style={{
+        margin: '16px 24px', padding: '12px 16px', borderRadius: 4, fontSize: 14,
+        background: '#fce8e8', border: '1px solid #f5c6cb', color: '#6b1117',
+        display: 'flex', gap: 10, alignItems: 'center',
+      }}>
+        <span style={{ fontSize: 16 }}>✕</span>
+        <strong>No containers found in this pod</strong>
+      </div>
     );
   }
 
   return (
-    <div>
-      {/* Container selector — shown only when there are multiple containers */}
-      {allContainers.length > 1 && (
-        <div style={{ padding: '12px 24px 0', maxWidth: 380 }}>
-          <Form isHorizontal>
-            <FormGroup label="Container" fieldId="files-container-select">
-              <FormSelect
-                id="files-container-select"
-                value={selectedContainer}
-                onChange={(val) => setSelectedContainer(val)}
-                aria-label="Select container"
-              >
-                {allContainers.map(c => (
-                  <FormSelectOption key={c.name} value={c.name} label={c.name} />
-                ))}
-              </FormSelect>
-            </FormGroup>
-          </Form>
-        </div>
-      )}
-
-      <FileExplorer
-        key={`${namespace}/${podName}/${selectedContainer}`}
-        namespace={namespace}
-        podName={podName}
-        containerName={selectedContainer}
-      />
-    </div>
+    <FileExplorer
+      key={`${namespace}/${podName}`}
+      namespace={namespace}
+      podName={podName}
+      containerName={firstContainer}
+      containers={allContainers.map(c => c.name)}
+    />
   );
 };
 

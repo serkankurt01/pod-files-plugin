@@ -7,7 +7,7 @@ loadPluginEntry('pod-files-plugin@1.0.0', /******/ (() => { // webpackBootstrap
 
 var moduleMap = {
 	"FilesTab": () => {
-		return Promise.all(/* exposed-FilesTab */[__webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_icons_file-icon_js-node_modules_react-do-cda298"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("exposed-FilesTab")]).then(() => (() => ((__webpack_require__(280)))));
+		return Promise.all(/* exposed-FilesTab */[__webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_icons_file-icon_js-node_modules_react-do-cda298"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("exposed-FilesTab")]).then(() => (() => ((__webpack_require__(2405)))));
 	}
 };
 var get = (module, getScope) => {

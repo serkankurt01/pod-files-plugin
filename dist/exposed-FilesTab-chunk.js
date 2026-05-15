@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunkpod_files_plugin"] = self["webpackChunkpod_files_plugin"] || []).push([["exposed-FilesTab"],{
 
-/***/ 280
+/***/ 2405
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 // ESM COMPAT FLAG
@@ -16,70 +16,6 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: consume shared module (default) react@^17.0.1 (singleton)
 var consume_shared_module_default_react_17_0_singleton_ = __webpack_require__(8893);
 var consume_shared_module_default_react_17_0_singleton_default = /*#__PURE__*/__webpack_require__.n(consume_shared_module_default_react_17_0_singleton_);
-// EXTERNAL MODULE: consume shared module (default) @patternfly/react-core@^4.0.0 (strict) (fallback: ../node_modules/@patternfly/react-core/dist/esm/index.js)
-var index_js_ = __webpack_require__(9598);
-// EXTERNAL MODULE: ../node_modules/@patternfly/react-icons/dist/esm/createIcon.js
-var createIcon = __webpack_require__(2791);
-;// ../node_modules/@patternfly/react-icons/dist/esm/icons/download-icon.js
-
-
-const DownloadIconConfig = {
-  name: 'DownloadIcon',
-  height: 512,
-  width: 512,
-  svgPath: 'M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z',
-  yOffset: 0,
-  xOffset: 0,
-};
-
-const DownloadIcon = (0,createIcon/* createIcon */.wt)(DownloadIconConfig);
-
-/* harmony default export */ const download_icon = ((/* unused pure expression or super */ null && (DownloadIcon)));
-;// ../node_modules/@patternfly/react-icons/dist/esm/icons/pencil-alt-icon.js
-
-
-const PencilAltIconConfig = {
-  name: 'PencilAltIcon',
-  height: 512,
-  width: 512,
-  svgPath: 'M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z',
-  yOffset: 0,
-  xOffset: 0,
-};
-
-const PencilAltIcon = (0,createIcon/* createIcon */.wt)(PencilAltIconConfig);
-
-/* harmony default export */ const pencil_alt_icon = ((/* unused pure expression or super */ null && (PencilAltIcon)));
-;// ../node_modules/@patternfly/react-icons/dist/esm/icons/folder-open-icon.js
-
-
-const FolderOpenIconConfig = {
-  name: 'FolderOpenIcon',
-  height: 512,
-  width: 576,
-  svgPath: 'M572.694 292.093L500.27 416.248A63.997 63.997 0 0 1 444.989 448H45.025c-18.523 0-30.064-20.093-20.731-36.093l72.424-124.155A64 64 0 0 1 152 256h399.964c18.523 0 30.064 20.093 20.73 36.093zM152 224h328v-48c0-26.51-21.49-48-48-48H272l-64-64H48C21.49 64 0 85.49 0 112v278.046l69.077-118.418C86.214 242.25 117.989 224 152 224z',
-  yOffset: 0,
-  xOffset: 0,
-};
-
-const FolderOpenIcon = (0,createIcon/* createIcon */.wt)(FolderOpenIconConfig);
-
-/* harmony default export */ const folder_open_icon = ((/* unused pure expression or super */ null && (FolderOpenIcon)));
-;// ../node_modules/@patternfly/react-icons/dist/esm/icons/trash-icon.js
-
-
-const TrashIconConfig = {
-  name: 'TrashIcon',
-  height: 512,
-  width: 448,
-  svgPath: 'M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z',
-  yOffset: 0,
-  xOffset: 0,
-};
-
-const TrashIcon = (0,createIcon/* createIcon */.wt)(TrashIconConfig);
-
-/* harmony default export */ const trash_icon = ((/* unused pure expression or super */ null && (TrashIcon)));
 ;// ./utils/exec.ts
 const CH_STDIN = 0;
 const CH_STDOUT = 1;
@@ -98,12 +34,22 @@ function buildExecUrl(opts, withStdin) {
 function mergeChunks(parts) {
     const total = parts.reduce((n, p) => n + p.length, 0);
     const result = new Uint8Array(total);
-    let offset = 0;
+    let off = 0;
     for (const p of parts) {
-        result.set(p, offset);
-        offset += p.length;
+        result.set(p, off);
+        off += p.length;
     }
     return result;
+}
+// Yield to the event loop via MessageChannel instead of setTimeout.
+// setTimeout(fn, 0) is throttled to ≥1 000 ms in background tabs (Chrome/Firefox).
+// MessageChannel port messages are not subject to that throttling.
+function nextTick() {
+    return new Promise(resolve => {
+        const ch = new MessageChannel();
+        ch.port1.onmessage = () => resolve();
+        ch.port2.postMessage(null);
+    });
 }
 function execCommand(opts) {
     return new Promise((resolve, reject) => {
@@ -113,73 +59,251 @@ function execCommand(opts) {
         const errParts = [];
         ws.onmessage = (e) => {
             const msg = new Uint8Array(e.data);
-            const ch = msg[0];
-            const data = msg.slice(1);
-            if (ch === CH_STDOUT)
-                outParts.push(data);
-            else if (ch === CH_STDERR)
-                errParts.push(data);
+            if (msg[0] === CH_STDOUT)
+                outParts.push(msg.slice(1));
+            else if (msg[0] === CH_STDERR)
+                errParts.push(msg.slice(1));
         };
-        ws.onclose = () => {
-            resolve({
-                stdout: mergeChunks(outParts),
-                stderr: new TextDecoder().decode(mergeChunks(errParts)),
-            });
-        };
+        ws.onclose = () => resolve({
+            stdout: mergeChunks(outParts),
+            stderr: new TextDecoder().decode(mergeChunks(errParts)),
+        });
         ws.onerror = () => reject(new Error('WebSocket exec error'));
     });
 }
-// Used for file upload and text file save — sends data through pod stdin.
-// Kubernetes exec WebSocket: client close signals EOF to the process stdin.
+// Sends `data` to a pod's stdin and collects stdout + stderr.
+//
+// EOF signalling: ws.close() after bufferedAmount drains to 0.
+//   ws.bufferedAmount === 0 means every byte has been handed to the OS TCP
+//   stack.  TCP delivers data in order, so the Kubernetes API server receives
+//   all stdin bytes before it sees the WebSocket CLOSE frame.  Only then does
+//   it close the pod's stdin pipe, giving the remote process a clean EOF.
+//
+// allSent flag: Kubernetes API server often tears down the TCP connection
+//   (close code 1006) immediately after the exec process exits, before the
+//   browser completes the WebSocket close handshake.  If allSent is true we
+//   treat code 1006 as success, not as a mid-transfer drop.
 function execCommandWithStdin(opts, data) {
     return new Promise((resolve, reject) => {
         const ws = new WebSocket(buildExecUrl(opts, true), 'v4.channel.k8s.io');
         ws.binaryType = 'arraybuffer';
         const outParts = [];
         const errParts = [];
-        ws.onopen = () => {
-            const CHUNK_SIZE = 32 * 1024;
+        let allSent = false;
+        ws.onopen = async () => {
+            const CHUNK = 32 * 1024;
             let offset = 0;
-            const sendNext = () => {
+            while (ws.readyState === WebSocket.OPEN) {
                 if (offset >= data.length) {
-                    if (ws.bufferedAmount > 0) {
-                        setTimeout(sendNext, 50);
-                        return;
+                    while (ws.bufferedAmount > 0 && ws.readyState === WebSocket.OPEN) {
+                        await new Promise(r => setTimeout(r, 10));
                     }
-                    ws.close();
+                    if (ws.readyState === WebSocket.OPEN) {
+                        allSent = true;
+                        ws.close();
+                    }
                     return;
                 }
-                if (ws.bufferedAmount > 1024 * 1024) {
-                    setTimeout(sendNext, 50);
-                    return;
+                if (ws.bufferedAmount > 512 * 1024) {
+                    await new Promise(r => setTimeout(r, 10));
+                    continue;
                 }
-                const slice = data.slice(offset, Math.min(offset + CHUNK_SIZE, data.length));
+                const end = Math.min(offset + CHUNK, data.length);
+                const slice = data.slice(offset, end);
                 const msg = new Uint8Array(slice.length + 1);
                 msg[0] = CH_STDIN;
                 msg.set(slice, 1);
-                ws.send(msg.buffer);
+                try {
+                    ws.send(msg.buffer);
+                }
+                catch {
+                    ws.close();
+                    return;
+                }
                 offset += slice.length;
-                setTimeout(sendNext, 0);
-            };
-            sendNext();
+                await nextTick();
+            }
         };
         ws.onmessage = (e) => {
             const msg = new Uint8Array(e.data);
-            const ch = msg[0];
-            const chunk = msg.slice(1);
-            if (ch === CH_STDOUT)
-                outParts.push(chunk);
-            else if (ch === CH_STDERR)
-                errParts.push(chunk);
+            if (msg[0] === CH_STDOUT)
+                outParts.push(msg.slice(1));
+            else if (msg[0] === CH_STDERR)
+                errParts.push(msg.slice(1));
         };
-        ws.onclose = () => {
-            resolve({
-                stdout: mergeChunks(outParts),
-                stderr: new TextDecoder().decode(mergeChunks(errParts)),
-            });
+        ws.onerror = () => { };
+        ws.onclose = (e) => {
+            const stdout = mergeChunks(outParts);
+            const stderr = new TextDecoder().decode(mergeChunks(errParts));
+            if (!allSent && e.code === 1006) {
+                reject(new Error('Connection lost before all data was sent'));
+            }
+            else {
+                resolve({ stdout, stderr });
+            }
         };
-        ws.onerror = () => reject(new Error('WebSocket exec error'));
     });
+}
+// Streams a Blob lazily through a single WebSocket exec stdin.
+// Uses 256 KB reads so the entire file is never loaded into memory at once.
+// Progress is reported as bytes queued to the WebSocket send buffer.
+//
+// Why we never call ws.close() from the browser:
+//   The OpenShift console is a WebSocket proxy sitting between the browser and
+//   the Kubernetes API server.  When the browser sends a WebSocket CLOSE frame
+//   the proxy tears down the upstream connection to the API server immediately,
+//   dropping any data it had buffered but not yet forwarded — even though
+//   bufferedAmount === 0 on the browser side (bytes are in the OS TCP stack,
+//   not yet ACK'd by the proxy).  The result is a silently truncated file.
+//
+//   Instead, we rely on `head -c N` exiting after reading exactly N bytes
+//   (no EOF required).  Once the process exits, the Kubernetes API server
+//   sends a WebSocket CLOSE to the browser on its own, and our onclose handler
+//   resolves the promise.  The proxy never sees a client CLOSE and therefore
+//   never drops buffered data.
+//
+//   A 10-minute safety timer calls ws.close() only if the server never
+//   responds — guarding against hangs if the pod crashes or head stalls.
+function execStreamBlob(opts, blob, onProgress) {
+    return new Promise((resolve, reject) => {
+        const ws = new WebSocket(buildExecUrl(opts, true), 'v4.channel.k8s.io');
+        ws.binaryType = 'arraybuffer';
+        const errParts = [];
+        let allSent = false;
+        let safetyTimer;
+        ws.onopen = async () => {
+            const READ = 256 * 1024; // 256 KB reads from the Blob
+            const HWM = 4 * 1024 * 1024; // pause sending above 4 MB browser buffer
+            let offset = 0;
+            while (ws.readyState === WebSocket.OPEN) {
+                if (offset >= blob.size) {
+                    // All data queued — drain the browser's TCP send buffer.
+                    while (ws.bufferedAmount > 0 && ws.readyState === WebSocket.OPEN) {
+                        await new Promise(r => setTimeout(r, 10));
+                    }
+                    if (ws.readyState === WebSocket.OPEN) {
+                        allSent = true;
+                        // Do NOT call ws.close(). The remote `head -c N` command exits on
+                        // its own after reading N bytes; the API server then closes the
+                        // WebSocket (code 1000).  Calling ws.close() here causes the
+                        // console proxy to drop still-buffered data mid-forward.
+                        safetyTimer = setTimeout(() => {
+                            if (ws.readyState !== WebSocket.CLOSED)
+                                ws.close();
+                        }, 10 * 60 * 1000); // 10-minute safety timeout
+                    }
+                    return;
+                }
+                if (ws.bufferedAmount > HWM) {
+                    await new Promise(r => setTimeout(r, 10));
+                    continue;
+                }
+                const end = Math.min(offset + READ, blob.size);
+                const buf = await blob.slice(offset, end).arrayBuffer();
+                const msg = new Uint8Array(buf.byteLength + 1);
+                msg[0] = CH_STDIN;
+                msg.set(new Uint8Array(buf), 1);
+                try {
+                    ws.send(msg.buffer);
+                }
+                catch {
+                    ws.close();
+                    return;
+                }
+                offset += buf.byteLength;
+                onProgress(offset);
+                await nextTick(); // yield without background-tab setTimeout throttling
+            }
+        };
+        ws.onmessage = (e) => {
+            const msg = new Uint8Array(e.data);
+            if (msg[0] === CH_STDERR)
+                errParts.push(msg.slice(1));
+        };
+        ws.onerror = () => { };
+        ws.onclose = (e) => {
+            clearTimeout(safetyTimer);
+            const stderr = new TextDecoder().decode(mergeChunks(errParts));
+            // code 1006 = abnormal / no close frame = real connection drop.
+            // Reject only when the drop happened before we finished queuing data.
+            // After allSent=true the API server may reset the TCP connection after
+            // the process exits (also code 1006 in some environments); treat that
+            // as success — the stat verification below catches any partial writes.
+            if (!allSent && e.code === 1006) {
+                reject(new Error('Connection lost during upload'));
+            }
+            else {
+                resolve({ stderr });
+            }
+        };
+    });
+}
+async function getPodFileSize(opts, escapedPath) {
+    try {
+        const r = await execCommand({
+            ...opts,
+            command: ['sh', '-c', `stat -c%s '${escapedPath}' 2>/dev/null || echo 0`],
+        });
+        return parseInt(new TextDecoder().decode(r.stdout).trim()) || 0;
+    }
+    catch {
+        return 0;
+    }
+}
+// Uploads a browser File to a pod path using a single exec WebSocket session.
+//
+// Design rationale:
+//   Previous chunked approaches (N sessions for an N-MB file) hit an
+//   OpenShift console proxy session-count limit (~150 sessions), leaving large
+//   files partially written.  A single session per upload attempt avoids this.
+//
+//   On connection drop the retry path checks the already-written byte count,
+//   truncates to a 1 MB-aligned boundary, and resumes streaming from that
+//   offset.  After streaming, the remote file size is verified with `stat`
+//   so a silent partial write is always caught and retried.
+async function execUploadFile(opts, file, destPath, onProgress) {
+    const escaped = destPath.replace(/'/g, "'\\''");
+    const ALIGN = 1 * 1024 * 1024;
+    const MAX_TRIES = 3;
+    let resumeFrom = 0;
+    for (let attempt = 0; attempt < MAX_TRIES; attempt++) {
+        if (attempt > 0) {
+            const existing = await getPodFileSize(opts, escaped);
+            const aligned = Math.floor(existing / ALIGN) * ALIGN;
+            if (aligned > 0 && aligned < file.size) {
+                await execCommandWithStdin({ ...opts, command: ['sh', '-c', `truncate -s ${aligned} '${escaped}' 2>/dev/null; true`] }, new Uint8Array(0)).catch(() => { });
+                resumeFrom = aligned;
+            }
+            else {
+                await execCommandWithStdin({ ...opts, command: ['rm', '-f', destPath] }, new Uint8Array(0)).catch(() => { });
+                resumeFrom = 0;
+            }
+            await new Promise(r => setTimeout(r, 600));
+        }
+        const remaining = file.size - resumeFrom;
+        const blob = resumeFrom > 0 ? file.slice(resumeFrom) : file;
+        const cmd = resumeFrom === 0
+            ? ['sh', '-c', `head -c ${file.size} > '${escaped}'`]
+            : ['sh', '-c', `head -c ${remaining} >> '${escaped}'`];
+        let streamError = null;
+        try {
+            const result = await execStreamBlob({ ...opts, command: cmd }, blob, bytes => onProgress(Math.round((resumeFrom + bytes) / file.size * 100)));
+            if (result.stderr.trim())
+                streamError = result.stderr;
+        }
+        catch (err) {
+            streamError = err.message;
+        }
+        const finalSize = await getPodFileSize(opts, escaped);
+        if (finalSize === file.size)
+            return { stderr: '' };
+        if (!streamError) {
+            streamError = `Upload incomplete: expected ${file.size} B, got ${finalSize} B`;
+        }
+        if (attempt === MAX_TRIES - 1)
+            return { stderr: streamError };
+    }
+    return { stderr: 'Upload failed after multiple attempts' };
 }
 function execStream(opts, onData, onClose, onError) {
     const ws = new WebSocket(buildExecUrl(opts, false), 'v4.channel.k8s.io');
@@ -188,13 +312,11 @@ function execStream(opts, onData, onClose, onError) {
     ws.onmessage = (e) => {
         const msg = new Uint8Array(e.data);
         const ch = msg[0];
-        const data = msg.slice(1);
-        if (ch === CH_STDOUT) {
-            onData(decoder.decode(data, { stream: true }), false);
-        }
-        else if (ch === CH_STDERR) {
-            onData(decoder.decode(data, { stream: true }), true);
-        }
+        const d = msg.slice(1);
+        if (ch === CH_STDOUT)
+            onData(decoder.decode(d, { stream: true }), false);
+        else if (ch === CH_STDERR)
+            onData(decoder.decode(d, { stream: true }), true);
     };
     ws.onclose = () => {
         const rest = decoder.decode();
@@ -303,6 +425,8 @@ function buildSearchCommand(dirPath, query) {
     ];
 }
 
+// EXTERNAL MODULE: ../node_modules/@patternfly/react-icons/dist/esm/createIcon.js
+var createIcon = __webpack_require__(2791);
 ;// ../node_modules/@patternfly/react-icons/dist/esm/icons/folder-icon.js
 
 
@@ -620,14 +744,11 @@ const UploadModal = ({ namespace, podName, containerName, currentPath, onClose, 
         if (!file)
             return;
         setUploading(true);
-        setProgress(30);
+        setProgress(0);
         setError('');
         try {
-            const data = new Uint8Array(await file.arrayBuffer());
-            setProgress(60);
-            const escaped = joinPath(currentPath, file.name).replace(/'/g, "'\\''");
-            const result = await execCommandWithStdin({ namespace, podName, containerName, command: ['sh', '-c', `cat > '${escaped}'`] }, data);
-            setProgress(100);
+            const destPath = joinPath(currentPath, file.name);
+            const result = await execUploadFile({ namespace, podName, containerName }, file, destPath, (pct) => setProgress(pct));
             if (result.stderr.trim()) {
                 setError(result.stderr);
             }
@@ -1084,6 +1205,8 @@ const FileTailViewer = ({ namespace, podName, containerName, currentPath, target
 };
 /* harmony default export */ const components_FileTailViewer = (FileTailViewer);
 
+// EXTERNAL MODULE: consume shared module (default) @patternfly/react-core@^4.0.0 (strict) (fallback: ../node_modules/@patternfly/react-core/dist/esm/index.js)
+var index_js_ = __webpack_require__(9598);
 ;// ./components/ImagePreviewModal.tsx
 
 
@@ -1168,15 +1291,6 @@ const ImagePreviewModal = ({ namespace, podName, containerName, currentPath, ent
 
 
 
-
-
-
-
-
-
-
-
-
 const Btn = ({ variant = 'secondary', style, children, ...rest }) => {
     const base = {
         border: 'none', borderRadius: 3, cursor: rest.disabled ? 'not-allowed' : 'pointer',
@@ -1193,21 +1307,27 @@ const Btn = ({ variant = 'secondary', style, children, ...rest }) => {
     };
     return consume_shared_module_default_react_17_0_singleton_default().createElement("button", { ...rest, style: { ...base, ...variants[variant], ...style } }, children);
 };
-const ActionBtn = ({ danger, style, children, ...rest }) => (consume_shared_module_default_react_17_0_singleton_default().createElement("button", { ...rest, style: {
-        background: danger ? '#fce8e8' : '#f0f0f0',
-        border: 'none',
-        cursor: rest.disabled ? 'wait' : 'pointer',
-        padding: '4px 8px',
-        borderRadius: 4,
-        color: danger ? '#c9190b' : '#151515',
-        fontSize: 12,
-        fontWeight: 600,
-        opacity: rest.disabled ? 0.5 : 1,
-        display: 'inline-flex',
-        alignItems: 'center',
-        ...style
+const DropItem = ({ onClick, danger, disabled, children }) => (consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: disabled ? undefined : onClick, disabled: disabled, style: {
+        display: 'block', width: '100%', textAlign: 'left',
+        padding: '8px 16px', background: 'none', border: 'none',
+        cursor: disabled ? 'not-allowed' : 'pointer', fontSize: 13,
+        color: disabled ? '#aaa' : danger ? '#c9190b' : '#151515',
+        opacity: disabled ? 0.5 : 1,
+        whiteSpace: 'nowrap',
     } }, children));
-const FileExplorer = ({ namespace, podName, containerName }) => {
+const CssSpinner = ({ size = 28 }) => (consume_shared_module_default_react_17_0_singleton_default().createElement((consume_shared_module_default_react_17_0_singleton_default()).Fragment, null,
+    consume_shared_module_default_react_17_0_singleton_default().createElement("style", null, `@keyframes _pf_spin{to{transform:rotate(360deg)}}`),
+    consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: {
+            display: 'inline-block', width: size, height: size,
+            borderRadius: '50%', border: '3px solid #d2d2d2',
+            borderTopColor: '#06c', animation: '_pf_spin .7s linear infinite',
+            verticalAlign: 'middle', flexShrink: 0,
+        } })));
+const ARCHIVE_EXTS = ['.tar.gz', '.tgz', '.tar', '.zip'];
+const isArchive = (name) => ARCHIVE_EXTS.some(ext => name.endsWith(ext));
+const isImageFile = (name) => ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'].some(ext => name.toLowerCase().endsWith(ext));
+const FileExplorer = ({ namespace, podName, containerName, containers }) => {
+    const [activeContainer, setActiveContainer] = (0,consume_shared_module_default_react_17_0_singleton_.useState)(containerName);
     const [currentPath, setCurrentPath] = (0,consume_shared_module_default_react_17_0_singleton_.useState)('/');
     const [files, setFiles] = (0,consume_shared_module_default_react_17_0_singleton_.useState)([]);
     const [loading, setLoading] = (0,consume_shared_module_default_react_17_0_singleton_.useState)(false);
@@ -1229,13 +1349,27 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
     // Drag & Drop state
     const [isDragging, setIsDragging] = (0,consume_shared_module_default_react_17_0_singleton_.useState)(false);
     const [uploadingFiles, setUploadingFiles] = (0,consume_shared_module_default_react_17_0_singleton_.useState)([]);
+    // Three-dot dropdown
+    const [openMenu, setOpenMenu] = (0,consume_shared_module_default_react_17_0_singleton_.useState)(null);
+    // Close dropdown on scroll or resize
+    (0,consume_shared_module_default_react_17_0_singleton_.useEffect)(() => {
+        if (!openMenu)
+            return;
+        const close = () => setOpenMenu(null);
+        window.addEventListener('scroll', close, true);
+        window.addEventListener('resize', close);
+        return () => {
+            window.removeEventListener('scroll', close, true);
+            window.removeEventListener('resize', close);
+        };
+    }, [openMenu]);
     const loadDirectory = (0,consume_shared_module_default_react_17_0_singleton_.useCallback)(async (path, query = '') => {
         setLoading(true);
         setError('');
-        setSelectedItems(new Set()); // Reset selections on load
+        setSelectedItems(new Set());
         try {
             const command = query ? buildSearchCommand(path, query) : buildListCommand(path);
-            const result = await execCommand({ namespace, podName, containerName, command });
+            const result = await execCommand({ namespace, podName, containerName: activeContainer, command });
             if (result.stderr.trim()) {
                 setError(result.stderr.trim());
                 setFiles([]);
@@ -1252,8 +1386,10 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
         finally {
             setLoading(false);
         }
-    }, [namespace, podName, containerName]);
+    }, [namespace, podName, activeContainer]);
     (0,consume_shared_module_default_react_17_0_singleton_.useEffect)(() => { loadDirectory(currentPath); setSearchQuery(''); }, [currentPath, loadDirectory]);
+    // Reset to root when container changes
+    (0,consume_shared_module_default_react_17_0_singleton_.useEffect)(() => { setCurrentPath('/'); setSearchQuery(''); }, [activeContainer]);
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         loadDirectory(currentPath, searchQuery);
@@ -1264,7 +1400,7 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
         const filePath = joinPath(currentPath, entry.name);
         setDownloading(entry.name);
         try {
-            const result = await execCommand({ namespace, podName, containerName, command: ['base64', filePath] });
+            const result = await execCommand({ namespace, podName, containerName: activeContainer, command: ['base64', filePath] });
             const b64 = new TextDecoder().decode(result.stdout).replace(/\s+/g, '');
             const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
             const url = URL.createObjectURL(new Blob([bytes]));
@@ -1284,7 +1420,7 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
             const escapedPath = currentPath.replace(/'/g, "'\\''");
             const escapedNames = names.map(n => `'${n.replace(/'/g, "'\\''")}'`).join(' ');
             const command = ['sh', '-c', `tar -czf - -C '${escapedPath}' ${escapedNames} | base64`];
-            const result = await execCommand({ namespace, podName, containerName, command });
+            const result = await execCommand({ namespace, podName, containerName: activeContainer, command });
             if (result.stderr.trim())
                 throw new Error(result.stderr);
             const b64 = new TextDecoder().decode(result.stdout).replace(/\s+/g, '');
@@ -1310,7 +1446,7 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
             const command = entry.name.endsWith('.zip')
                 ? ['sh', '-c', `unzip -o '${escaped}' -d '${escapedDir}'`]
                 : ['sh', '-c', `tar -xf '${escaped}' -C '${escapedDir}'`];
-            const result = await execCommand({ namespace, podName, containerName, command });
+            const result = await execCommand({ namespace, podName, containerName: activeContainer, command });
             if (result.stderr.trim())
                 throw new Error(result.stderr);
             loadDirectory(currentPath);
@@ -1332,9 +1468,8 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
         for (const file of filesToUpload) {
             try {
                 setUploadingFiles(prev => [...prev, { name: file.name }]);
-                const data = new Uint8Array(await file.arrayBuffer());
-                const escaped = joinPath(currentPath, file.name).replace(/'/g, "'\\''");
-                const result = await execCommandWithStdin({ namespace, podName, containerName, command: ['sh', '-c', `cat > '${escaped}'`] }, data);
+                const destPath = joinPath(currentPath, file.name);
+                const result = await execUploadFile({ namespace, podName, containerName: activeContainer }, file, destPath, () => { });
                 if (result.stderr.trim())
                     setError(`Failed to upload ${file.name}: ${result.stderr}`);
             }
@@ -1347,39 +1482,50 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
         }
         loadDirectory(currentPath);
     };
-    const isImageFile = (name) => {
-        const ext = name.toLowerCase();
-        return ext.endsWith('.png') || ext.endsWith('.jpg') || ext.endsWith('.jpeg') || ext.endsWith('.gif') || ext.endsWith('.svg') || ext.endsWith('.webp');
+    const handleMenuOpen = (e, entry) => {
+        e.stopPropagation();
+        if (openMenu?.entry.name === entry.name) {
+            setOpenMenu(null);
+            return;
+        }
+        const rect = e.currentTarget.getBoundingClientRect();
+        const menuW = 200;
+        const menuH = 260;
+        const left = rect.right - menuW < 8 ? 8 : rect.right - menuW;
+        const top = rect.bottom + menuH > window.innerHeight
+            ? Math.max(8, rect.top - menuH)
+            : rect.bottom + 4;
+        setOpenMenu({ entry, top, left });
     };
+    const closeMenu = () => setOpenMenu(null);
     const segments = pathSegments(currentPath);
     return (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { padding: '16px 24px', fontFamily: 'RedHatText, Overpass, sans-serif', position: 'relative' }, onDragOver: handleDragOver, onDragLeave: handleDragLeave, onDrop: handleDrop },
         isDragging && (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: {
                 position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
                 background: 'rgba(6, 102, 204, 0.1)', border: '2px dashed #06c',
                 zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                pointerEvents: 'none', borderRadius: 8
+                pointerEvents: 'none', borderRadius: 8,
             } },
-            consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.Title, { headingLevel: "h2", size: "xl", style: { color: '#06c', background: '#fff', padding: '12px 24px', borderRadius: 4, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' } },
+            consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { color: '#06c', background: '#fff', padding: '12px 24px', borderRadius: 4, boxShadow: '0 4px 12px rgba(0,0,0,0.1)', fontSize: 18, fontWeight: 600 } },
                 "Drop files to upload into ",
                 currentPath))),
         uploadingFiles.length > 0 && (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: {
                 position: 'fixed', bottom: 24, right: 24, zIndex: 101,
-                background: '#fff', padding: '16px 24px', borderRadius: 8, boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-                border: '1px solid #d2d2d2', width: 300
+                background: '#fff', padding: '16px 24px', borderRadius: 8,
+                boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+                border: '1px solid #d2d2d2', width: 300,
             } },
             consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { fontWeight: 600, marginBottom: 8 } },
                 "Uploading ",
                 uploadingFiles.length,
                 " file(s)..."),
-            uploadingFiles.map(f => (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { key: f.name, style: { fontSize: 13, color: '#6a6e73', marginBottom: 4, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' } },
-                consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.Spinner, { size: "md", style: { marginRight: 8 } }),
-                " ",
-                f.name))))),
+            uploadingFiles.map(f => (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { key: f.name, style: { display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#6a6e73', marginBottom: 4, overflow: 'hidden' } },
+                consume_shared_module_default_react_17_0_singleton_default().createElement(CssSpinner, { size: 16 }),
+                consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: { overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' } }, f.name)))))),
         consume_shared_module_default_react_17_0_singleton_default().createElement("nav", { "aria-label": "Directory path", style: {
                 display: 'flex', alignItems: 'center', flexWrap: 'wrap',
                 gap: 2, padding: '8px 0 12px',
-                borderBottom: '1px solid #d2d2d2', marginBottom: 12,
-                fontSize: 14,
+                borderBottom: '1px solid #d2d2d2', marginBottom: 12, fontSize: 14,
             } },
             consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: () => navigateTo('/'), style: { background: 'none', border: 'none', cursor: 'pointer', color: '#06c', padding: '0 4px', fontSize: 14 } }, "/"),
             segments.map((seg, idx) => {
@@ -1400,7 +1546,14 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
                     " selected"),
                 consume_shared_module_default_react_17_0_singleton_default().createElement(Btn, { variant: "primary", style: { padding: '4px 12px', fontSize: 13 }, onClick: () => downloadArchive(Array.from(selectedItems), 'selected_files.tar.gz') }, "Tar Selected"),
                 consume_shared_module_default_react_17_0_singleton_default().createElement(Btn, { variant: "danger", style: { padding: '4px 12px', fontSize: 13 }, onClick: () => setItemsToDelete(Array.from(selectedItems)) }, "Delete Selected"))),
-            consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { marginLeft: 'auto' } },
+            consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' } },
+                containers && containers.length > 1 && (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { display: 'flex', alignItems: 'center', gap: 6 } },
+                    consume_shared_module_default_react_17_0_singleton_default().createElement("label", { htmlFor: "fe-container-select", style: { fontSize: 13, fontWeight: 500, color: '#151515', whiteSpace: 'nowrap' } }, "Container"),
+                    consume_shared_module_default_react_17_0_singleton_default().createElement("select", { id: "fe-container-select", value: activeContainer, onChange: e => setActiveContainer(e.target.value), style: {
+                            padding: '5px 10px', fontSize: 13,
+                            border: '1px solid #c7c7c7', borderRadius: 3,
+                            background: '#fff', color: '#151515', cursor: 'pointer',
+                        } }, containers.map(c => consume_shared_module_default_react_17_0_singleton_default().createElement("option", { key: c, value: c }, c))))),
                 consume_shared_module_default_react_17_0_singleton_default().createElement("form", { onSubmit: handleSearchSubmit, style: { display: 'flex', gap: 4 } },
                     consume_shared_module_default_react_17_0_singleton_default().createElement("input", { type: "text", placeholder: "Search in folder...", value: searchQuery, onChange: e => setSearchQuery(e.target.value), style: { padding: '6px 10px', fontSize: 13, border: '1px solid #c7c7c7', borderRadius: 3, width: 200 } }),
                     consume_shared_module_default_react_17_0_singleton_default().createElement(Btn, { variant: "secondary", type: "submit", disabled: loading }, "Search")))),
@@ -1411,32 +1564,32 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
             } },
             consume_shared_module_default_react_17_0_singleton_default().createElement("span", null, error),
             consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: () => setError(''), style: { background: 'none', border: 'none', cursor: 'pointer', color: '#6b1117', fontSize: 16 } }, "\u00D7"))),
-        loading && (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { padding: 48, textAlign: 'center' } },
-            consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.Spinner, { size: "lg" }))),
-        !loading && files.length === 0 && !error && (consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.EmptyState, null,
-            consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.EmptyStateIcon, { icon: FolderOpenIcon }),
-            consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.Title, { headingLevel: "h4", size: "lg" }, "Empty results"),
-            consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.EmptyStateBody, null, isSearching ? 'No files match your search.' : 'No files or subdirectories found.'))),
-        !loading && files.length > 0 && (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { overflowX: 'auto', border: '1px solid #d2d2d2', borderRadius: 4 } },
-            consume_shared_module_default_react_17_0_singleton_default().createElement("table", { className: "pf-c-table pf-m-compact pf-m-grid-md", "aria-label": "Pod filesystem", style: { minWidth: 800, background: '#fff', margin: 0 } },
+        loading && (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { padding: 56, display: 'flex', justifyContent: 'center' } },
+            consume_shared_module_default_react_17_0_singleton_default().createElement(CssSpinner, { size: 40 }))),
+        !loading && files.length === 0 && !error && (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { padding: '48px 24px', textAlign: 'center', color: '#6a6e73' } },
+            consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { fontSize: 48, lineHeight: 1, marginBottom: 12 } }, "\uD83D\uDCC2"),
+            consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { fontSize: 16, fontWeight: 600, color: '#151515', marginBottom: 6 } }, "Empty results"),
+            consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { fontSize: 14 } }, isSearching ? 'No files match your search.' : 'No files or subdirectories found.'))),
+        !loading && files.length > 0 && (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { overflowX: 'auto', border: '1px solid #d2d2d2', borderRadius: 4, width: '100%' } },
+            consume_shared_module_default_react_17_0_singleton_default().createElement("table", { className: "pf-c-table pf-m-compact pf-m-grid-md", "aria-label": "Pod filesystem", style: { width: '100%', tableLayout: 'fixed', background: '#fff', margin: 0 } },
                 consume_shared_module_default_react_17_0_singleton_default().createElement("thead", { className: "pf-c-table__thead" },
                     consume_shared_module_default_react_17_0_singleton_default().createElement("tr", { className: "pf-c-table__tr", style: { borderBottom: '2px solid #d2d2d2' } },
-                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', width: '40px' } },
-                            consume_shared_module_default_react_17_0_singleton_default().createElement("input", { type: "checkbox", checked: selectedItems.size === files.length && files.length > 0, onChange: (e) => {
+                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', width: 40 } },
+                            consume_shared_module_default_react_17_0_singleton_default().createElement("input", { type: "checkbox", checked: selectedItems.size === files.length && files.length > 0, onChange: e => {
                                     if (e.target.checked)
                                         setSelectedItems(new Set(files.map(f => f.name)));
                                     else
                                         setSelectedItems(new Set());
                                 } })),
                         consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600 } }, "Name"),
-                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600, width: '100px' } }, "Size"),
-                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600, width: '180px' } }, "Modified"),
-                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600, width: '100px' } }, "Perms"),
-                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600, width: '140px' } }, "Owner"),
-                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600, width: '220px' } }, "Actions"))),
+                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600, width: '9%' } }, "Size"),
+                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600, width: '14%' } }, "Modified"),
+                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600, width: '8%' } }, "Perms"),
+                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', fontWeight: 600, width: '11%' } }, "Owner"),
+                        consume_shared_module_default_react_17_0_singleton_default().createElement("th", { className: "pf-c-table__th", style: { padding: '12px 16px', width: '4%' } }))),
                 consume_shared_module_default_react_17_0_singleton_default().createElement("tbody", { className: "pf-c-table__tbody" }, files.map(entry => (consume_shared_module_default_react_17_0_singleton_default().createElement("tr", { className: "pf-c-table__tr", key: entry.name, style: { borderBottom: '1px solid #f0f0f0' } },
                     consume_shared_module_default_react_17_0_singleton_default().createElement("td", { className: "pf-c-table__td", style: { padding: '10px 16px' } },
-                        consume_shared_module_default_react_17_0_singleton_default().createElement("input", { type: "checkbox", checked: selectedItems.has(entry.name), onChange: (e) => {
+                        consume_shared_module_default_react_17_0_singleton_default().createElement("input", { type: "checkbox", checked: selectedItems.has(entry.name), onChange: e => {
                                 const next = new Set(selectedItems);
                                 if (e.target.checked)
                                     next.add(entry.name);
@@ -1444,10 +1597,10 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
                                     next.delete(entry.name);
                                 setSelectedItems(next);
                             } })),
-                    consume_shared_module_default_react_17_0_singleton_default().createElement("td", { className: "pf-c-table__td", "data-label": "Name", style: { padding: '10px 16px' } },
-                        consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: { display: 'inline-flex', alignItems: 'center', gap: 8 } },
+                    consume_shared_module_default_react_17_0_singleton_default().createElement("td", { className: "pf-c-table__td", "data-label": "Name", style: { padding: '10px 16px', maxWidth: 0 } },
+                        consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: { display: 'flex', alignItems: 'center', gap: 8, overflow: 'hidden' } },
                             consume_shared_module_default_react_17_0_singleton_default().createElement(FileIcon, { entry: entry, style: { flexShrink: 0, fontSize: '1.2em' } }),
-                            entry.type === 'directory' ? (consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: () => navigateInto(entry.name), style: { background: 'none', border: 'none', cursor: 'pointer', color: '#06c', fontSize: 14, padding: 0, fontWeight: 500, textAlign: 'left' } }, entry.name)) : isImageFile(entry.name) ? (consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: () => setItemToPreview(entry), style: { background: 'none', border: 'none', cursor: 'pointer', color: '#06c', fontSize: 14, padding: 0, fontWeight: 500, textAlign: 'left', textDecoration: 'underline' } }, entry.name)) : (consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: { wordBreak: 'break-all', fontSize: 14 } }, entry.name)),
+                            entry.type === 'directory' ? (consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: () => navigateInto(entry.name), style: { background: 'none', border: 'none', cursor: 'pointer', color: '#06c', fontSize: 14, padding: 0, fontWeight: 500, textAlign: 'left', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', minWidth: 0 } }, entry.name)) : isImageFile(entry.name) ? (consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: () => setItemToPreview(entry), style: { background: 'none', border: 'none', cursor: 'pointer', color: '#06c', fontSize: 14, padding: 0, fontWeight: 500, textAlign: 'left', textDecoration: 'underline', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', minWidth: 0 } }, entry.name)) : (consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: { fontSize: 14, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', minWidth: 0 } }, entry.name)),
                             entry.type === 'symlink' && entry.target && (consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: { color: '#8a8d90', fontSize: '0.8em', fontStyle: 'italic' } },
                                 "\u2192 ",
                                 entry.target)))),
@@ -1459,35 +1612,50 @@ const FileExplorer = ({ namespace, podName, containerName }) => {
                         entry.user || '—',
                         ":",
                         entry.group || '—'),
-                    consume_shared_module_default_react_17_0_singleton_default().createElement("td", { className: "pf-c-table__td", "data-label": "Actions", style: { padding: '10px 16px' } },
-                        consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { display: 'flex', gap: 6, flexWrap: 'wrap' } },
-                            consume_shared_module_default_react_17_0_singleton_default().createElement(ActionBtn, { title: "Rename", onClick: () => setItemToRename(entry.name) }, "Ren"),
-                            entry.type === 'directory' && (consume_shared_module_default_react_17_0_singleton_default().createElement(ActionBtn, { title: "Download as Tar", disabled: downloading === entry.name, onClick: () => downloadArchive([entry.name], `${entry.name}.tar.gz`) }, "Tar")),
-                            entry.type === 'file' && (consume_shared_module_default_react_17_0_singleton_default().createElement(ActionBtn, { title: "Download", disabled: downloading === entry.name, onClick: () => downloadFile(entry) },
-                                consume_shared_module_default_react_17_0_singleton_default().createElement(DownloadIcon, null))),
-                            entry.type === 'file' && (entry.name.endsWith('.tar.gz') || entry.name.endsWith('.tgz') || entry.name.endsWith('.tar') || entry.name.endsWith('.zip')) && (consume_shared_module_default_react_17_0_singleton_default().createElement(ActionBtn, { title: "Extract Archive", onClick: () => extractArchive(entry) }, "Ext")),
-                            entry.type === 'file' && isTextFile(entry.name) && (consume_shared_module_default_react_17_0_singleton_default().createElement(ActionBtn, { title: "Edit", onClick: () => setEditingFile(joinPath(currentPath, entry.name)) },
-                                consume_shared_module_default_react_17_0_singleton_default().createElement(PencilAltIcon, null))),
-                            entry.type === 'file' && (isTextFile(entry.name) || entry.name.endsWith('.log')) && (consume_shared_module_default_react_17_0_singleton_default().createElement(ActionBtn, { title: "Tail Log", onClick: () => setItemToTail(entry.name) }, "Tail")),
-                            consume_shared_module_default_react_17_0_singleton_default().createElement(ActionBtn, { danger: true, title: "Delete", onClick: () => setItemsToDelete([entry.name]) },
-                                consume_shared_module_default_react_17_0_singleton_default().createElement(TrashIcon, null))))))))))),
-        showCreateModal && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_CreateModal, { namespace: namespace, podName: podName, containerName: containerName, currentPath: currentPath, type: showCreateModal, onClose: () => setShowCreateModal(null), onSuccess: () => loadDirectory(currentPath) })),
-        itemsToDelete.length > 0 && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_DeleteModal, { namespace: namespace, podName: podName, containerName: containerName, currentPath: currentPath, targetNames: itemsToDelete, onClose: () => setItemsToDelete([]), onSuccess: () => { setSelectedItems(new Set()); loadDirectory(currentPath); } })),
-        itemToRename && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_RenameModal, { namespace: namespace, podName: podName, containerName: containerName, currentPath: currentPath, targetName: itemToRename, onClose: () => setItemToRename(null), onSuccess: () => loadDirectory(currentPath) })),
-        itemToPerms && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_PermissionsModal, { namespace: namespace, podName: podName, containerName: containerName, currentPath: currentPath, entry: itemToPerms, onClose: () => setItemToPerms(null), onSuccess: () => loadDirectory(currentPath) })),
-        itemToTail && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_FileTailViewer, { namespace: namespace, podName: podName, containerName: containerName, currentPath: currentPath, targetName: itemToTail, onClose: () => setItemToTail(null) })),
-        itemToPreview && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_ImagePreviewModal, { namespace: namespace, podName: podName, containerName: containerName, currentPath: currentPath, entry: itemToPreview, onClose: () => setItemToPreview(null) })),
-        editingFile && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_FileEditor, { namespace: namespace, podName: podName, containerName: containerName, filePath: editingFile, onClose: () => setEditingFile(null), onSaved: () => loadDirectory(currentPath) })),
-        showUpload && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_UploadModal, { namespace: namespace, podName: podName, containerName: containerName, currentPath: currentPath, onClose: () => setShowUpload(false), onSuccess: () => loadDirectory(currentPath) }))));
+                    consume_shared_module_default_react_17_0_singleton_default().createElement("td", { className: "pf-c-table__td", style: { padding: '10px 8px', textAlign: 'center' } },
+                        consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: e => handleMenuOpen(e, entry), title: "More actions", style: {
+                                background: openMenu?.entry.name === entry.name ? '#f0f0f0' : 'none',
+                                border: '1px solid transparent',
+                                borderRadius: 4, cursor: 'pointer',
+                                padding: '3px 8px', fontSize: 20,
+                                color: '#6a6e73', lineHeight: 1,
+                                letterSpacing: 1,
+                            } }, "\u22EE"))))))))),
+        openMenu && (consume_shared_module_default_react_17_0_singleton_default().createElement((consume_shared_module_default_react_17_0_singleton_default()).Fragment, null,
+            consume_shared_module_default_react_17_0_singleton_default().createElement("div", { onClick: closeMenu, style: { position: 'fixed', inset: 0, zIndex: 1999 } }),
+            consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: {
+                    position: 'fixed',
+                    top: openMenu.top,
+                    left: openMenu.left,
+                    zIndex: 2000,
+                    background: '#fff',
+                    border: '1px solid #d2d2d2',
+                    borderRadius: 6,
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.18)',
+                    minWidth: 200,
+                    padding: '4px 0',
+                } },
+                consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); setItemToRename(openMenu.entry.name); } }, "Rename"),
+                openMenu.entry.type === 'directory' && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { disabled: !!downloading, onClick: () => { closeMenu(); downloadArchive([openMenu.entry.name], `${openMenu.entry.name}.tar.gz`); } }, "Download as tar.gz")),
+                openMenu.entry.type === 'file' && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { disabled: downloading === openMenu.entry.name, onClick: () => { closeMenu(); downloadFile(openMenu.entry); } }, "Download")),
+                openMenu.entry.type === 'file' && isArchive(openMenu.entry.name) && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); extractArchive(openMenu.entry); } }, "Extract here")),
+                openMenu.entry.type === 'file' && isTextFile(openMenu.entry.name) && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); setEditingFile(joinPath(currentPath, openMenu.entry.name)); } }, "Edit")),
+                openMenu.entry.type === 'file' && (isTextFile(openMenu.entry.name) || openMenu.entry.name.endsWith('.log')) && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); setItemToTail(openMenu.entry.name); } }, "Tail")),
+                consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); setItemToPerms(openMenu.entry); } }, "Permissions"),
+                consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { height: 1, background: '#e8e8e8', margin: '4px 0' } }),
+                consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { danger: true, onClick: () => { closeMenu(); setItemsToDelete([openMenu.entry.name]); } }, "Delete")))),
+        showCreateModal && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_CreateModal, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, type: showCreateModal, onClose: () => setShowCreateModal(null), onSuccess: () => loadDirectory(currentPath) })),
+        itemsToDelete.length > 0 && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_DeleteModal, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, targetNames: itemsToDelete, onClose: () => setItemsToDelete([]), onSuccess: () => { setSelectedItems(new Set()); loadDirectory(currentPath); } })),
+        itemToRename && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_RenameModal, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, targetName: itemToRename, onClose: () => setItemToRename(null), onSuccess: () => loadDirectory(currentPath) })),
+        itemToPerms && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_PermissionsModal, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, entry: itemToPerms, onClose: () => setItemToPerms(null), onSuccess: () => loadDirectory(currentPath) })),
+        itemToTail && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_FileTailViewer, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, targetName: itemToTail, onClose: () => setItemToTail(null) })),
+        itemToPreview && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_ImagePreviewModal, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, entry: itemToPreview, onClose: () => setItemToPreview(null) })),
+        editingFile && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_FileEditor, { namespace: namespace, podName: podName, containerName: activeContainer, filePath: editingFile, onClose: () => setEditingFile(null), onSaved: () => loadDirectory(currentPath) })),
+        showUpload && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_UploadModal, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, onClose: () => setShowUpload(false), onSuccess: () => loadDirectory(currentPath) }))));
 };
 /* harmony default export */ const components_FileExplorer = (FileExplorer);
 
 ;// ./components/FilesTab.tsx
-
-
-
-
-
 
 
 function getPodSpec(obj) {
@@ -1503,25 +1671,36 @@ const FilesTab = ({ obj }) => {
         ...(spec.containers ?? []),
         ...(spec.initContainers ?? []),
     ];
-    const [selectedContainer, setSelectedContainer] = (0,consume_shared_module_default_react_17_0_singleton_.useState)(allContainers[0]?.name ?? '');
     const phase = getPodPhase(obj);
     const namespace = obj.metadata?.namespace ?? '';
     const podName = obj.metadata?.name ?? '';
+    const firstContainer = allContainers[0]?.name ?? '';
     if (phase && phase !== 'Running') {
-        return (consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.Alert, { variant: "warning", title: `Pod is ${phase}`, isInline: true, style: { margin: '16px 24px' } },
-            "File browsing is only available while the pod is in ",
-            consume_shared_module_default_react_17_0_singleton_default().createElement("strong", null, "Running"),
-            " state."));
+        return (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: {
+                margin: '16px 24px', padding: '12px 16px', borderRadius: 4, fontSize: 14,
+                background: '#fdf2da', border: '1px solid #f0ab00', color: '#795600',
+                display: 'flex', gap: 10, alignItems: 'flex-start',
+            } },
+            consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: { fontSize: 16 } }, "\u26A0"),
+            consume_shared_module_default_react_17_0_singleton_default().createElement("div", null,
+                consume_shared_module_default_react_17_0_singleton_default().createElement("strong", null,
+                    "Pod is ",
+                    phase),
+                consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { marginTop: 4 } },
+                    "File browsing is only available while the pod is in ",
+                    consume_shared_module_default_react_17_0_singleton_default().createElement("strong", null, "Running"),
+                    " state."))));
     }
-    if (!selectedContainer) {
-        return (consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.Alert, { variant: "danger", title: "No containers found in this pod", isInline: true, style: { margin: '16px 24px' } }));
+    if (!firstContainer) {
+        return (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: {
+                margin: '16px 24px', padding: '12px 16px', borderRadius: 4, fontSize: 14,
+                background: '#fce8e8', border: '1px solid #f5c6cb', color: '#6b1117',
+                display: 'flex', gap: 10, alignItems: 'center',
+            } },
+            consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: { fontSize: 16 } }, "\u2715"),
+            consume_shared_module_default_react_17_0_singleton_default().createElement("strong", null, "No containers found in this pod")));
     }
-    return (consume_shared_module_default_react_17_0_singleton_default().createElement("div", null,
-        allContainers.length > 1 && (consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { padding: '12px 24px 0', maxWidth: 380 } },
-            consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.Form, { isHorizontal: true },
-                consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.FormGroup, { label: "Container", fieldId: "files-container-select" },
-                    consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.FormSelect, { id: "files-container-select", value: selectedContainer, onChange: (val) => setSelectedContainer(val), "aria-label": "Select container" }, allContainers.map(c => (consume_shared_module_default_react_17_0_singleton_default().createElement(index_js_.FormSelectOption, { key: c.name, value: c.name, label: c.name })))))))),
-        consume_shared_module_default_react_17_0_singleton_default().createElement(components_FileExplorer, { key: `${namespace}/${podName}/${selectedContainer}`, namespace: namespace, podName: podName, containerName: selectedContainer })));
+    return (consume_shared_module_default_react_17_0_singleton_default().createElement(components_FileExplorer, { key: `${namespace}/${podName}`, namespace: namespace, podName: podName, containerName: firstContainer, containers: allContainers.map(c => c.name) }));
 };
 /* harmony default export */ const components_FilesTab = (FilesTab);
 
