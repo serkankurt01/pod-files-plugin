@@ -75,7 +75,14 @@ function buildTarBlob(filename: string, blob: Blob): Blob {
   const header  = createTarHeader(filename, blob.size);
   const padding = new Uint8Array((512 - (blob.size % 512)) % 512);
   const eoa     = new Uint8Array(1024); // end-of-archive: two 512-byte null blocks
-  return new Blob([header, blob, padding, eoa]);
+  // Pass .buffer (ArrayBuffer) so the Blob constructor accepts the parts
+  // regardless of the TypeScript lib's Uint8Array generic variance.
+  return new Blob([
+    header.buffer  as ArrayBuffer,
+    blob,
+    padding.buffer as ArrayBuffer,
+    eoa.buffer     as ArrayBuffer,
+  ]);
 }
 // ────────────────────────────────────────────────────────────────────────────
 

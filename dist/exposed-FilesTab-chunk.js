@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunkpod_files_plugin"] = self["webpackChunkpod_files_plugin"] || []).push([["exposed-FilesTab"],{
 
-/***/ 2405
+/***/ 4073
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 // ESM COMPAT FLAG
@@ -16,6 +16,113 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: consume shared module (default) react@^17.0.1 (singleton)
 var consume_shared_module_default_react_17_0_singleton_ = __webpack_require__(8893);
 var consume_shared_module_default_react_17_0_singleton_default = /*#__PURE__*/__webpack_require__.n(consume_shared_module_default_react_17_0_singleton_);
+// EXTERNAL MODULE: ../node_modules/@patternfly/react-icons/dist/esm/createIcon.js
+var createIcon = __webpack_require__(2791);
+;// ../node_modules/@patternfly/react-icons/dist/esm/icons/pencil-alt-icon.js
+
+
+const PencilAltIconConfig = {
+  name: 'PencilAltIcon',
+  height: 512,
+  width: 512,
+  svgPath: 'M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z',
+  yOffset: 0,
+  xOffset: 0,
+};
+
+const PencilAltIcon = (0,createIcon/* createIcon */.wt)(PencilAltIconConfig);
+
+/* harmony default export */ const pencil_alt_icon = ((/* unused pure expression or super */ null && (PencilAltIcon)));
+;// ../node_modules/@patternfly/react-icons/dist/esm/icons/download-icon.js
+
+
+const DownloadIconConfig = {
+  name: 'DownloadIcon',
+  height: 512,
+  width: 512,
+  svgPath: 'M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z',
+  yOffset: 0,
+  xOffset: 0,
+};
+
+const DownloadIcon = (0,createIcon/* createIcon */.wt)(DownloadIconConfig);
+
+/* harmony default export */ const download_icon = ((/* unused pure expression or super */ null && (DownloadIcon)));
+;// ../node_modules/@patternfly/react-icons/dist/esm/icons/trash-icon.js
+
+
+const TrashIconConfig = {
+  name: 'TrashIcon',
+  height: 512,
+  width: 448,
+  svgPath: 'M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z',
+  yOffset: 0,
+  xOffset: 0,
+};
+
+const TrashIcon = (0,createIcon/* createIcon */.wt)(TrashIconConfig);
+
+/* harmony default export */ const trash_icon = ((/* unused pure expression or super */ null && (TrashIcon)));
+;// ../node_modules/@patternfly/react-icons/dist/esm/icons/compress-arrows-alt-icon.js
+
+
+const CompressArrowsAltIconConfig = {
+  name: 'CompressArrowsAltIcon',
+  height: 512,
+  width: 512,
+  svgPath: 'M200 288H88c-21.4 0-32.1 25.8-17 41l32.9 31-99.2 99.3c-6.2 6.2-6.2 16.4 0 22.6l25.4 25.4c6.2 6.2 16.4 6.2 22.6 0L152 408l31.1 33c15.1 15.1 40.9 4.4 40.9-17V312c0-13.3-10.7-24-24-24zm112-64h112c21.4 0 32.1-25.9 17-41l-33-31 99.3-99.3c6.2-6.2 6.2-16.4 0-22.6L481.9 4.7c-6.2-6.2-16.4-6.2-22.6 0L360 104l-31.1-33C313.8 55.9 288 66.6 288 88v112c0 13.3 10.7 24 24 24zm96 136l33-31.1c15.1-15.1 4.4-40.9-17-40.9H312c-13.3 0-24 10.7-24 24v112c0 21.4 25.9 32.1 41 17l31-32.9 99.3 99.3c6.2 6.2 16.4 6.2 22.6 0l25.4-25.4c6.2-6.2 6.2-16.4 0-22.6L408 360zM183 71.1L152 104 52.7 4.7c-6.2-6.2-16.4-6.2-22.6 0L4.7 30.1c-6.2 6.2-6.2 16.4 0 22.6L104 152l-33 31.1C55.9 198.2 66.6 224 88 224h112c13.3 0 24-10.7 24-24V88c0-21.3-25.9-32-41-16.9z',
+  yOffset: 0,
+  xOffset: 0,
+};
+
+const CompressArrowsAltIcon = (0,createIcon/* createIcon */.wt)(CompressArrowsAltIconConfig);
+
+/* harmony default export */ const compress_arrows_alt_icon = ((/* unused pure expression or super */ null && (CompressArrowsAltIcon)));
+;// ../node_modules/@patternfly/react-icons/dist/esm/icons/terminal-icon.js
+
+
+const TerminalIconConfig = {
+  name: 'TerminalIcon',
+  height: 512,
+  width: 640,
+  svgPath: 'M257.981 272.971L63.638 467.314c-9.373 9.373-24.569 9.373-33.941 0L7.029 444.647c-9.357-9.357-9.375-24.522-.04-33.901L161.011 256 6.99 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L257.981 239.03c9.373 9.372 9.373 24.568 0 33.941zM640 456v-32c0-13.255-10.745-24-24-24H312c-13.255 0-24 10.745-24 24v32c0 13.255 10.745 24 24 24h304c13.255 0 24-10.745 24-24z',
+  yOffset: 0,
+  xOffset: 0,
+};
+
+const TerminalIcon = (0,createIcon/* createIcon */.wt)(TerminalIconConfig);
+
+/* harmony default export */ const terminal_icon = ((/* unused pure expression or super */ null && (TerminalIcon)));
+;// ../node_modules/@patternfly/react-icons/dist/esm/icons/lock-icon.js
+
+
+const LockIconConfig = {
+  name: 'LockIcon',
+  height: 512,
+  width: 448,
+  svgPath: 'M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z',
+  yOffset: 0,
+  xOffset: 0,
+};
+
+const LockIcon = (0,createIcon/* createIcon */.wt)(LockIconConfig);
+
+/* harmony default export */ const lock_icon = ((/* unused pure expression or super */ null && (LockIcon)));
+;// ../node_modules/@patternfly/react-icons/dist/esm/icons/folder-icon.js
+
+
+const FolderIconConfig = {
+  name: 'FolderIcon',
+  height: 512,
+  width: 512,
+  svgPath: 'M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z',
+  yOffset: 0,
+  xOffset: 0,
+};
+
+const FolderIcon = (0,createIcon/* createIcon */.wt)(FolderIconConfig);
+
+/* harmony default export */ const folder_icon = ((/* unused pure expression or super */ null && (FolderIcon)));
 ;// ./utils/exec.ts
 const CH_STDIN = 0;
 const CH_STDOUT = 1;
@@ -33,17 +140,14 @@ function buildExecUrl(opts, withStdin) {
 }
 function mergeChunks(parts) {
     const total = parts.reduce((n, p) => n + p.length, 0);
-    const result = new Uint8Array(total);
+    const out = new Uint8Array(total);
     let off = 0;
     for (const p of parts) {
-        result.set(p, off);
+        out.set(p, off);
         off += p.length;
     }
-    return result;
+    return out;
 }
-// Yield to the event loop via MessageChannel instead of setTimeout.
-// setTimeout(fn, 0) is throttled to ≥1 000 ms in background tabs (Chrome/Firefox).
-// MessageChannel port messages are not subject to that throttling.
 function nextTick() {
     return new Promise(resolve => {
         const ch = new MessageChannel();
@@ -51,6 +155,45 @@ function nextTick() {
         ch.port2.postMessage(null);
     });
 }
+// ── POSIX ustar tar helpers ──────────────────────────────────────────────────
+// Builds a single-file tar archive as a lazy Blob (no data loaded upfront).
+// The End-of-Archive marker (1024 null bytes) lets `tar -xf -` exit cleanly
+// without needing stdin EOF, so we never have to call ws.close() and the
+// OpenShift console proxy never drops buffered data on a premature CLOSE frame.
+function createTarHeader(filename, fileSize) {
+    const block = new Uint8Array(512);
+    const enc = (s) => new TextEncoder().encode(s);
+    const set = (off, s) => block.set(enc(s), off);
+    set(0, filename.slice(0, 99)); // name
+    set(100, '0000644\0'); // mode
+    set(108, '0000000\0'); // uid
+    set(116, '0000000\0'); // gid
+    set(124, fileSize.toString(8).padStart(11, '0') + '\0'); // size
+    set(136, Math.floor(Date.now() / 1000).toString(8).padStart(11, '0') + '\0'); // mtime
+    block.fill(0x20, 148, 156); // checksum placeholder (spaces)
+    block[156] = 0x30; // type '0' = regular file
+    set(257, 'ustar\0'); // magic
+    set(263, '00'); // version
+    let sum = 0;
+    for (let i = 0; i < 512; i++)
+        sum += block[i];
+    set(148, sum.toString(8).padStart(6, '0') + '\0 '); // checksum
+    return block;
+}
+function buildTarBlob(filename, blob) {
+    const header = createTarHeader(filename, blob.size);
+    const padding = new Uint8Array((512 - (blob.size % 512)) % 512);
+    const eoa = new Uint8Array(1024); // end-of-archive: two 512-byte null blocks
+    // Pass .buffer (ArrayBuffer) so the Blob constructor accepts the parts
+    // regardless of the TypeScript lib's Uint8Array generic variance.
+    return new Blob([
+        header.buffer,
+        blob,
+        padding.buffer,
+        eoa.buffer,
+    ]);
+}
+// ────────────────────────────────────────────────────────────────────────────
 function execCommand(opts) {
     return new Promise((resolve, reject) => {
         const ws = new WebSocket(buildExecUrl(opts, false), 'v4.channel.k8s.io');
@@ -71,18 +214,6 @@ function execCommand(opts) {
         ws.onerror = () => reject(new Error('WebSocket exec error'));
     });
 }
-// Sends `data` to a pod's stdin and collects stdout + stderr.
-//
-// EOF signalling: ws.close() after bufferedAmount drains to 0.
-//   ws.bufferedAmount === 0 means every byte has been handed to the OS TCP
-//   stack.  TCP delivers data in order, so the Kubernetes API server receives
-//   all stdin bytes before it sees the WebSocket CLOSE frame.  Only then does
-//   it close the pod's stdin pipe, giving the remote process a clean EOF.
-//
-// allSent flag: Kubernetes API server often tears down the TCP connection
-//   (close code 1006) immediately after the exec process exits, before the
-//   browser completes the WebSocket close handshake.  If allSent is true we
-//   treat code 1006 as success, not as a mid-transfer drop.
 function execCommandWithStdin(opts, data) {
     return new Promise((resolve, reject) => {
         const ws = new WebSocket(buildExecUrl(opts, true), 'v4.channel.k8s.io');
@@ -135,35 +266,26 @@ function execCommandWithStdin(opts, data) {
         ws.onclose = (e) => {
             const stdout = mergeChunks(outParts);
             const stderr = new TextDecoder().decode(mergeChunks(errParts));
-            if (!allSent && e.code === 1006) {
+            if (!allSent && e.code === 1006)
                 reject(new Error('Connection lost before all data was sent'));
-            }
-            else {
+            else
                 resolve({ stdout, stderr });
-            }
         };
     });
 }
-// Streams a Blob lazily through a single WebSocket exec stdin.
-// Uses 256 KB reads so the entire file is never loaded into memory at once.
-// Progress is reported as bytes queued to the WebSocket send buffer.
+// Streams a Blob through a single WebSocket exec stdin session.
 //
-// Why we never call ws.close() from the browser:
-//   The OpenShift console is a WebSocket proxy sitting between the browser and
-//   the Kubernetes API server.  When the browser sends a WebSocket CLOSE frame
-//   the proxy tears down the upstream connection to the API server immediately,
-//   dropping any data it had buffered but not yet forwarded — even though
-//   bufferedAmount === 0 on the browser side (bytes are in the OS TCP stack,
-//   not yet ACK'd by the proxy).  The result is a silently truncated file.
-//
-//   Instead, we rely on `head -c N` exiting after reading exactly N bytes
-//   (no EOF required).  Once the process exits, the Kubernetes API server
-//   sends a WebSocket CLOSE to the browser on its own, and our onclose handler
-//   resolves the promise.  The proxy never sees a client CLOSE and therefore
-//   never drops buffered data.
-//
-//   A 10-minute safety timer calls ws.close() only if the server never
-//   responds — guarding against hangs if the pod crashes or head stalls.
+// Key design decisions:
+//  1. READ = 8 KB — small messages pass through every proxy/buffer layer.
+//     Larger messages (256 KB) were being truncated to ~24 KB by the
+//     OpenShift console proxy before reaching the pod.
+//  2. We never call ws.close() from the browser. Instead the remote command
+//     (`tar -xf -`) detects End-of-Archive in the stream and exits on its own,
+//     after which the Kubernetes API server closes the WebSocket (code 1000).
+//     Calling ws.close() from the browser causes the console proxy to
+//     immediately tear down the upstream connection and drop buffered data.
+//  3. A 10-minute safety timer calls ws.close() only if the server never
+//     responds — guarding against hangs if the pod crashes mid-transfer.
 function execStreamBlob(opts, blob, onProgress) {
     return new Promise((resolve, reject) => {
         const ws = new WebSocket(buildExecUrl(opts, true), 'v4.channel.k8s.io');
@@ -172,25 +294,21 @@ function execStreamBlob(opts, blob, onProgress) {
         let allSent = false;
         let safetyTimer;
         ws.onopen = async () => {
-            const READ = 256 * 1024; // 256 KB reads from the Blob
-            const HWM = 4 * 1024 * 1024; // pause sending above 4 MB browser buffer
+            const READ = 8 * 1024; // 8 KB — safe for all proxy configurations
+            const HWM = 2 * 1024 * 1024; // pause if browser buffer exceeds 2 MB
             let offset = 0;
             while (ws.readyState === WebSocket.OPEN) {
                 if (offset >= blob.size) {
-                    // All data queued — drain the browser's TCP send buffer.
                     while (ws.bufferedAmount > 0 && ws.readyState === WebSocket.OPEN) {
                         await new Promise(r => setTimeout(r, 10));
                     }
                     if (ws.readyState === WebSocket.OPEN) {
                         allSent = true;
-                        // Do NOT call ws.close(). The remote `head -c N` command exits on
-                        // its own after reading N bytes; the API server then closes the
-                        // WebSocket (code 1000).  Calling ws.close() here causes the
-                        // console proxy to drop still-buffered data mid-forward.
+                        // DO NOT call ws.close() — let the remote command exit naturally.
                         safetyTimer = setTimeout(() => {
                             if (ws.readyState !== WebSocket.CLOSED)
                                 ws.close();
-                        }, 10 * 60 * 1000); // 10-minute safety timeout
+                        }, 10 * 60 * 1000);
                     }
                     return;
                 }
@@ -212,7 +330,7 @@ function execStreamBlob(opts, blob, onProgress) {
                 }
                 offset += buf.byteLength;
                 onProgress(offset);
-                await nextTick(); // yield without background-tab setTimeout throttling
+                await nextTick();
             }
         };
         ws.onmessage = (e) => {
@@ -224,17 +342,10 @@ function execStreamBlob(opts, blob, onProgress) {
         ws.onclose = (e) => {
             clearTimeout(safetyTimer);
             const stderr = new TextDecoder().decode(mergeChunks(errParts));
-            // code 1006 = abnormal / no close frame = real connection drop.
-            // Reject only when the drop happened before we finished queuing data.
-            // After allSent=true the API server may reset the TCP connection after
-            // the process exits (also code 1006 in some environments); treat that
-            // as success — the stat verification below catches any partial writes.
-            if (!allSent && e.code === 1006) {
+            if (!allSent && e.code === 1006)
                 reject(new Error('Connection lost during upload'));
-            }
-            else {
+            else
                 resolve({ stderr });
-            }
         };
     });
 }
@@ -250,51 +361,40 @@ async function getPodFileSize(opts, escapedPath) {
         return 0;
     }
 }
-// Uploads a browser File to a pod path using a single exec WebSocket session.
+// Uploads a File to a pod by streaming a ustar tar archive via exec.
 //
-// Design rationale:
-//   Previous chunked approaches (N sessions for an N-MB file) hit an
-//   OpenShift console proxy session-count limit (~150 sessions), leaving large
-//   files partially written.  A single session per upload attempt avoids this.
+// Using tar instead of `head -c N > file` or `cat > file` solves two problems:
+//  • `tar -xf -` exits when it reads the End-of-Archive marker embedded in
+//    the stream — no stdin EOF needed, no race with ws.close().
+//  • tar is universally available (busybox, alpine, debian, …).
 //
-//   On connection drop the retry path checks the already-written byte count,
-//   truncates to a 1 MB-aligned boundary, and resumes streaming from that
-//   offset.  After streaming, the remote file size is verified with `stat`
-//   so a silent partial write is always caught and retried.
+// The tar archive is built as a lazy Blob so the file is never fully loaded
+// into memory. After streaming, the file size is verified with `stat`.
 async function execUploadFile(opts, file, destPath, onProgress) {
-    const escaped = destPath.replace(/'/g, "'\\''");
-    const ALIGN = 1 * 1024 * 1024;
+    const lastSlash = destPath.lastIndexOf('/');
+    const destDir = lastSlash > 0 ? destPath.slice(0, lastSlash) : '/';
+    const fileName = lastSlash >= 0 ? destPath.slice(lastSlash + 1) : destPath;
+    const escapedPath = destPath.replace(/'/g, "'\\''");
     const MAX_TRIES = 3;
-    let resumeFrom = 0;
     for (let attempt = 0; attempt < MAX_TRIES; attempt++) {
         if (attempt > 0) {
-            const existing = await getPodFileSize(opts, escaped);
-            const aligned = Math.floor(existing / ALIGN) * ALIGN;
-            if (aligned > 0 && aligned < file.size) {
-                await execCommandWithStdin({ ...opts, command: ['sh', '-c', `truncate -s ${aligned} '${escaped}' 2>/dev/null; true`] }, new Uint8Array(0)).catch(() => { });
-                resumeFrom = aligned;
-            }
-            else {
-                await execCommandWithStdin({ ...opts, command: ['rm', '-f', destPath] }, new Uint8Array(0)).catch(() => { });
-                resumeFrom = 0;
-            }
-            await new Promise(r => setTimeout(r, 600));
+            await new Promise(r => setTimeout(r, 800));
         }
-        const remaining = file.size - resumeFrom;
-        const blob = resumeFrom > 0 ? file.slice(resumeFrom) : file;
-        const cmd = resumeFrom === 0
-            ? ['sh', '-c', `head -c ${file.size} > '${escaped}'`]
-            : ['sh', '-c', `head -c ${remaining} >> '${escaped}'`];
+        const tarBlob = buildTarBlob(fileName, file);
         let streamError = null;
         try {
-            const result = await execStreamBlob({ ...opts, command: cmd }, blob, bytes => onProgress(Math.round((resumeFrom + bytes) / file.size * 100)));
+            const result = await execStreamBlob({ ...opts, command: ['tar', '-xf', '-', '-C', destDir] }, tarBlob, bytes => {
+                // Subtract the 512-byte tar header to show file-data progress.
+                const filePct = Math.min(100, Math.round(Math.max(0, bytes - 512) / file.size * 100));
+                onProgress(filePct);
+            });
             if (result.stderr.trim())
                 streamError = result.stderr;
         }
         catch (err) {
             streamError = err.message;
         }
-        const finalSize = await getPodFileSize(opts, escaped);
+        const finalSize = await getPodFileSize(opts, escapedPath);
         if (finalSize === file.size)
             return { stderr: '' };
         if (!streamError) {
@@ -318,17 +418,12 @@ function execStream(opts, onData, onClose, onError) {
         else if (ch === CH_STDERR)
             onData(decoder.decode(d, { stream: true }), true);
     };
-    ws.onclose = () => {
-        const rest = decoder.decode();
-        if (rest)
-            onData(rest, false);
-        onClose();
-    };
+    ws.onclose = () => { const rest = decoder.decode(); if (rest)
+        onData(rest, false); onClose(); };
     ws.onerror = () => onError(new Error('WebSocket exec stream error'));
     return () => {
-        if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) {
+        if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)
             ws.close();
-        }
     };
 }
 
@@ -425,23 +520,6 @@ function buildSearchCommand(dirPath, query) {
     ];
 }
 
-// EXTERNAL MODULE: ../node_modules/@patternfly/react-icons/dist/esm/createIcon.js
-var createIcon = __webpack_require__(2791);
-;// ../node_modules/@patternfly/react-icons/dist/esm/icons/folder-icon.js
-
-
-const FolderIconConfig = {
-  name: 'FolderIcon',
-  height: 512,
-  width: 512,
-  svgPath: 'M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z',
-  yOffset: 0,
-  xOffset: 0,
-};
-
-const FolderIcon = (0,createIcon/* createIcon */.wt)(FolderIconConfig);
-
-/* harmony default export */ const folder_icon = ((/* unused pure expression or super */ null && (FolderIcon)));
 // EXTERNAL MODULE: ../node_modules/@patternfly/react-icons/dist/esm/icons/file-icon.js
 var file_icon = __webpack_require__(8997);
 ;// ../node_modules/@patternfly/react-icons/dist/esm/icons/file-alt-icon.js
@@ -1291,6 +1369,13 @@ const ImagePreviewModal = ({ namespace, podName, containerName, currentPath, ent
 
 
 
+
+
+
+
+
+
+
 const Btn = ({ variant = 'secondary', style, children, ...rest }) => {
     const base = {
         border: 'none', borderRadius: 3, cursor: rest.disabled ? 'not-allowed' : 'pointer',
@@ -1307,14 +1392,17 @@ const Btn = ({ variant = 'secondary', style, children, ...rest }) => {
     };
     return consume_shared_module_default_react_17_0_singleton_default().createElement("button", { ...rest, style: { ...base, ...variants[variant], ...style } }, children);
 };
-const DropItem = ({ onClick, danger, disabled, children }) => (consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: disabled ? undefined : onClick, disabled: disabled, style: {
-        display: 'block', width: '100%', textAlign: 'left',
+const DropItem = ({ onClick, icon, danger, disabled, children }) => (consume_shared_module_default_react_17_0_singleton_default().createElement("button", { onClick: disabled ? undefined : onClick, disabled: disabled, style: {
+        display: 'flex', alignItems: 'center', gap: 8,
+        width: '100%', textAlign: 'left',
         padding: '8px 16px', background: 'none', border: 'none',
         cursor: disabled ? 'not-allowed' : 'pointer', fontSize: 13,
         color: disabled ? '#aaa' : danger ? '#c9190b' : '#151515',
         opacity: disabled ? 0.5 : 1,
         whiteSpace: 'nowrap',
-    } }, children));
+    } },
+    icon && (consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: { display: 'inline-flex', width: 14, flexShrink: 0, opacity: 0.72 } }, icon)),
+    children));
 const CssSpinner = ({ size = 28 }) => (consume_shared_module_default_react_17_0_singleton_default().createElement((consume_shared_module_default_react_17_0_singleton_default()).Fragment, null,
     consume_shared_module_default_react_17_0_singleton_default().createElement("style", null, `@keyframes _pf_spin{to{transform:rotate(360deg)}}`),
     consume_shared_module_default_react_17_0_singleton_default().createElement("span", { style: {
@@ -1635,15 +1723,15 @@ const FileExplorer = ({ namespace, podName, containerName, containers }) => {
                     minWidth: 200,
                     padding: '4px 0',
                 } },
-                consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); setItemToRename(openMenu.entry.name); } }, "Rename"),
-                openMenu.entry.type === 'directory' && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { disabled: !!downloading, onClick: () => { closeMenu(); downloadArchive([openMenu.entry.name], `${openMenu.entry.name}.tar.gz`); } }, "Download as tar.gz")),
-                openMenu.entry.type === 'file' && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { disabled: downloading === openMenu.entry.name, onClick: () => { closeMenu(); downloadFile(openMenu.entry); } }, "Download")),
-                openMenu.entry.type === 'file' && isArchive(openMenu.entry.name) && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); extractArchive(openMenu.entry); } }, "Extract here")),
-                openMenu.entry.type === 'file' && isTextFile(openMenu.entry.name) && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); setEditingFile(joinPath(currentPath, openMenu.entry.name)); } }, "Edit")),
-                openMenu.entry.type === 'file' && (isTextFile(openMenu.entry.name) || openMenu.entry.name.endsWith('.log')) && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); setItemToTail(openMenu.entry.name); } }, "Tail")),
-                consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { onClick: () => { closeMenu(); setItemToPerms(openMenu.entry); } }, "Permissions"),
+                consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { icon: consume_shared_module_default_react_17_0_singleton_default().createElement(PencilAltIcon, null), onClick: () => { closeMenu(); setItemToRename(openMenu.entry.name); } }, "Rename"),
+                openMenu.entry.type === 'directory' && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { icon: consume_shared_module_default_react_17_0_singleton_default().createElement(FolderIcon, null), disabled: !!downloading, onClick: () => { closeMenu(); downloadArchive([openMenu.entry.name], `${openMenu.entry.name}.tar.gz`); } }, "Download as tar.gz")),
+                openMenu.entry.type === 'file' && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { icon: consume_shared_module_default_react_17_0_singleton_default().createElement(DownloadIcon, null), disabled: downloading === openMenu.entry.name, onClick: () => { closeMenu(); downloadFile(openMenu.entry); } }, "Download")),
+                openMenu.entry.type === 'file' && isArchive(openMenu.entry.name) && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { icon: consume_shared_module_default_react_17_0_singleton_default().createElement(CompressArrowsAltIcon, null), onClick: () => { closeMenu(); extractArchive(openMenu.entry); } }, "Extract here")),
+                openMenu.entry.type === 'file' && isTextFile(openMenu.entry.name) && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { icon: consume_shared_module_default_react_17_0_singleton_default().createElement(PencilAltIcon, null), onClick: () => { closeMenu(); setEditingFile(joinPath(currentPath, openMenu.entry.name)); } }, "Edit")),
+                openMenu.entry.type === 'file' && (isTextFile(openMenu.entry.name) || openMenu.entry.name.endsWith('.log')) && (consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { icon: consume_shared_module_default_react_17_0_singleton_default().createElement(TerminalIcon, null), onClick: () => { closeMenu(); setItemToTail(openMenu.entry.name); } }, "Tail")),
+                consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { icon: consume_shared_module_default_react_17_0_singleton_default().createElement(LockIcon, null), onClick: () => { closeMenu(); setItemToPerms(openMenu.entry); } }, "Permissions"),
                 consume_shared_module_default_react_17_0_singleton_default().createElement("div", { style: { height: 1, background: '#e8e8e8', margin: '4px 0' } }),
-                consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { danger: true, onClick: () => { closeMenu(); setItemsToDelete([openMenu.entry.name]); } }, "Delete")))),
+                consume_shared_module_default_react_17_0_singleton_default().createElement(DropItem, { danger: true, icon: consume_shared_module_default_react_17_0_singleton_default().createElement(TrashIcon, null), onClick: () => { closeMenu(); setItemsToDelete([openMenu.entry.name]); } }, "Delete")))),
         showCreateModal && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_CreateModal, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, type: showCreateModal, onClose: () => setShowCreateModal(null), onSuccess: () => loadDirectory(currentPath) })),
         itemsToDelete.length > 0 && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_DeleteModal, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, targetNames: itemsToDelete, onClose: () => setItemsToDelete([]), onSuccess: () => { setSelectedItems(new Set()); loadDirectory(currentPath); } })),
         itemToRename && (consume_shared_module_default_react_17_0_singleton_default().createElement(components_RenameModal, { namespace: namespace, podName: podName, containerName: activeContainer, currentPath: currentPath, targetName: itemToRename, onClose: () => setItemToRename(null), onSuccess: () => loadDirectory(currentPath) })),
