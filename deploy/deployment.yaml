@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: pod-files-plugin
-          image: docker.io/serkankurt01/pod-files-plugin:0.0.1
+          image: docker.io/serkankurt01/pod-files-plugin:0.0.19
           imagePullPolicy: Always
           ports:
             - containerPort: 9001
