@@ -2,12 +2,12 @@ loadPluginEntry('pod-files-plugin@1.0.0', /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 10321
+/***/ 321
 (__unused_webpack_module, exports, __webpack_require__) {
 
 var moduleMap = {
 	"FilesTab": () => {
-		return Promise.all(/* exposed-FilesTab */[__webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_createIcon_js-node_modules_react-dom_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("exposed-FilesTab")]).then(() => (() => ((__webpack_require__(91919)))));
+		return Promise.all(/* exposed-FilesTab */[__webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_icons_file-icon_js-node_modules_react-do-cda298"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("exposed-FilesTab")]).then(() => (() => ((__webpack_require__(280)))));
 	}
 };
 var get = (module, getScope) => {
@@ -54,15 +54,12 @@ __webpack_require__.d(exports, {
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
 /******/ 			id: moduleId,
-/******/ 			loaded: false,
+/******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -119,18 +116,6 @@ __webpack_require__.d(exports, {
 /******/ 			// return url for filenames based on template
 /******/ 			return "" + chunkId + "-chunk.js";
 /******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -194,15 +179,6 @@ __webpack_require__.d(exports, {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/node module decorator */
-/******/ 	(() => {
-/******/ 		__webpack_require__.nmd = (module) => {
-/******/ 			module.paths = [];
-/******/ 			if (!module.children) module.children = [];
-/******/ 			return module;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/sharing */
 /******/ 	(() => {
 /******/ 		__webpack_require__.S = {};
@@ -244,8 +220,7 @@ __webpack_require__.d(exports, {
 /******/ 			var promises = [];
 /******/ 			switch(name) {
 /******/ 				case "default": {
-/******/ 					register("@patternfly/react-core", "4.278.1", () => (Promise.all([__webpack_require__.e("vendors-node_modules_patternfly_react-core_dist_esm_components_Checkbox_Checkbox_js-node_modu-997112"), __webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_createIcon_js-node_modules_react-dom_index_js"), __webpack_require__.e("vendors-node_modules_patternfly_react-core_dist_esm_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("node_modules_patternfly_react-icons_dist_esm_icons_file-icon_js-data_image_svg_xml_charset_ut-13a9f7")]).then(() => (() => (__webpack_require__(58442))))));
-/******/ 					register("@patternfly/react-table", "4.113.7", () => (Promise.all([__webpack_require__.e("vendors-node_modules_patternfly_react-core_dist_esm_components_Checkbox_Checkbox_js-node_modu-997112"), __webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_createIcon_js-node_modules_react-dom_index_js"), __webpack_require__.e("vendors-node_modules_patternfly_react-table_dist_esm_index_js"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("node_modules_patternfly_react-icons_dist_esm_icons_pencil-alt-icon_js-data_image_svg_xml_char-876c15")]).then(() => (() => (__webpack_require__(44106))))));
+/******/ 					register("@patternfly/react-core", "4.278.1", () => (Promise.all([__webpack_require__.e("vendors-node_modules_patternfly_react-core_dist_esm_index_js"), __webpack_require__.e("vendors-node_modules_patternfly_react-icons_dist_esm_icons_file-icon_js-node_modules_react-do-cda298"), __webpack_require__.e("webpack_sharing_consume_default_react"), __webpack_require__.e("data_image_svg_xml_charset_utf8_3Csvg_xmlns_27http_www_w3_org_2000_svg_27_viewBox_270_0_320_5-dbc8530")]).then(() => (() => (__webpack_require__(2591))))));
 /******/ 				}
 /******/ 				break;
 /******/ 			}
@@ -385,8 +360,7 @@ __webpack_require__.d(exports, {
 /******/ 		var installedModules = {};
 /******/ 		var moduleToHandlerMapping = {
 /******/ 			8893: () => (loadSingletonVersion("default", "react", false, [1,17,0,1])),
-/******/ 			39598: () => (loadStrictVersion("default", "@patternfly/react-core", false, [1,4,0,0], () => (Promise.all([__webpack_require__.e("vendors-node_modules_patternfly_react-core_dist_esm_components_Checkbox_Checkbox_js-node_modu-997112"), __webpack_require__.e("vendors-node_modules_patternfly_react-core_dist_esm_index_js"), __webpack_require__.e("data_image_svg_xml_charset_utf8_3Csvg_xmlns_27http_www_w3_org_2000_svg_27_viewBox_270_0_320_5-dbc8530")]).then(() => (() => (__webpack_require__(58442))))))),
-/******/ 			83288: () => (loadStrictVersion("default", "@patternfly/react-table", false, [1,4,0,0], () => (Promise.all([__webpack_require__.e("vendors-node_modules_patternfly_react-core_dist_esm_components_Checkbox_Checkbox_js-node_modu-997112"), __webpack_require__.e("vendors-node_modules_patternfly_react-table_dist_esm_index_js"), __webpack_require__.e("data_image_svg_xml_charset_utf8_3Csvg_xmlns_27http_www_w3_org_2000_svg_27_viewBox_270_0_320_5-dbc8531")]).then(() => (() => (__webpack_require__(44106)))))))
+/******/ 			9598: () => (loadStrictVersion("default", "@patternfly/react-core", false, [1,4,0,0], () => (Promise.all([__webpack_require__.e("vendors-node_modules_patternfly_react-core_dist_esm_index_js"), __webpack_require__.e("data_image_svg_xml_charset_utf8_3Csvg_xmlns_27http_www_w3_org_2000_svg_27_viewBox_270_0_320_5-dbc8531")]).then(() => (() => (__webpack_require__(2591)))))))
 /******/ 		};
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
@@ -394,8 +368,7 @@ __webpack_require__.d(exports, {
 /******/ 				8893
 /******/ 			],
 /******/ 			"exposed-FilesTab": [
-/******/ 				39598,
-/******/ 				83288
+/******/ 				9598
 /******/ 			]
 /******/ 		};
 /******/ 		var startedInstallModules = {};
@@ -531,7 +504,7 @@ __webpack_require__.d(exports, {
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__(10321);
+/******/ 	var __webpack_exports__ = __webpack_require__(321);
 /******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()

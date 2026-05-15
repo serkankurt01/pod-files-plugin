@@ -95,3 +95,12 @@ export function joinPath(...parts: string[]): string {
 export function pathSegments(fullPath: string): string[] {
   return fullPath.split('/').filter(Boolean);
 }
+
+export function buildSearchCommand(dirPath: string, query: string): string[] {
+  const escapedDir = dirPath.replace(/'/g, "'\\''");
+  const escapedQuery = query.replace(/'/g, "'\\''");
+  return [
+    'sh', '-c',
+    `find '${escapedDir}' -type f -iname "*${escapedQuery}*" -printf "%y\\t%s\\t%T@\\t%m\\t%u\\t%g\\t%P\\t%l\\n" 2>/dev/null | head -n 100; true`,
+  ];
+}

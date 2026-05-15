@@ -84,9 +84,19 @@ export function execCommandWithStdin(
 
       const sendNext = () => {
         if (offset >= data.length) {
+          if (ws.bufferedAmount > 0) {
+            setTimeout(sendNext, 50);
+            return;
+          }
           ws.close();
           return;
         }
+
+        if (ws.bufferedAmount > 1024 * 1024) {
+          setTimeout(sendNext, 50);
+          return;
+        }
+
         const slice = data.slice(offset, Math.min(offset + CHUNK_SIZE, data.length));
         const msg = new Uint8Array(slice.length + 1);
         msg[0] = CH_STDIN;
@@ -116,4 +126,40 @@ export function execCommandWithStdin(
 
     ws.onerror = () => reject(new Error('WebSocket exec error'));
   });
+}
+
+export function execStream(
+  opts: ExecOptions,
+  onData: (data: string, isErr: boolean) => void,
+  onClose: () => void,
+  onError: (err: Error) => void,
+): () => void {
+  const ws = new WebSocket(buildExecUrl(opts, false), 'v4.channel.k8s.io');
+  ws.binaryType = 'arraybuffer';
+  const decoder = new TextDecoder();
+
+  ws.onmessage = (e: MessageEvent<ArrayBuffer>) => {
+    const msg = new Uint8Array(e.data);
+    const ch = msg[0];
+    const data = msg.slice(1);
+    if (ch === CH_STDOUT) {
+      onData(decoder.decode(data, { stream: true }), false);
+    } else if (ch === CH_STDERR) {
+      onData(decoder.decode(data, { stream: true }), true);
+    }
+  };
+
+  ws.onclose = () => {
+    const rest = decoder.decode();
+    if (rest) onData(rest, false);
+    onClose();
+  };
+
+  ws.onerror = () => onError(new Error('WebSocket exec stream error'));
+
+  return () => {
+    if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) {
+      ws.close();
+    }
+  };
 }
